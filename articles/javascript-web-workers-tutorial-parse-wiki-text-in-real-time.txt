@@ -31,13 +31,11 @@ Workers communicate with your scripts using <em>messages</em>.
 The following will open up an alert box containing any messages sent from the worker.
 <script src="https://gist.github.com/1541065.js?file=2"></script>
 And to send messages to a worker
-<pre lang="javascript">worker.postMessage('Message for worker');</pre>
+<script src="https://gist.github.com/1541065.js?file=3"></script>
 But what about our worker?
 
 Workers must be housed in their own files, I have named mine <strong>worker.js</strong>
-<pre lang="javascript">self.onmessage = function(event) {
-	self.postMessage(event.data);
-};</pre>
+<script src="https://gist.github.com/1541065.js?file=4"></script>
 This will simply send the message received from the script back.
 
 This is not very useful so lets expand our script a bit so we can create our wiki parser. <em>Browse to the bottom of this post for a sneak preview of it!</em>
@@ -47,39 +45,14 @@ This is not very useful so lets expand our script a bit so we can create our wik
 Lets create some basic HTML first.  Create a page called wiki.html and add the following
 
 
-`<html>
- <head>
-  <title> Wiki </title>
- </head>
-<body onload='init()'>
- <div id='wiki_div'></div>
- <textarea id='wiki_textarea' onkeyup='parse(this)' cols='100' rows='20'></textarea>
-</body>
-</html>`
-
+<script src="https://gist.github.com/1541065.js?file=5"></script>
 
 Now we need to define the <em>init()</em> and <em>parse()</em> functions. (Note: the <em>parse()</em> function will be triggered every time a key is released in the text area.
 
 Add the following just below the <em>body</em> tag
 
 
-`
-function init() {
-	document.parser = new Worker('Parser.js');
-	document.parser.onerror = function(event){
-		throw new Error(event.message + " (" + event.filename + ":" + event.lineno + ")");
-	};
-	
-	document.parser.onmessage = function(event) {
-		document.getElementById('wiki_div').innerHTML = event.data;
-	};
-	document.parser.postMessage(document.getElementById('wiki_textarea').value);
-}
-
-function parse(obj) {
-	document.parser.postMessage(obj.value);
-}
-</script>`
+<script src="https://gist.github.com/1541065.js?file=6"></script>
 
 
 The code can be summarised as follows:
@@ -91,89 +64,18 @@ The code can be summarised as follows:
 <li> The <em>parse</em> function simply sends a message to the worker with the contents of the text area, every time it is called (in our case this will be every time a keyup event occurs in the textarea)</li></ul>
 
 The error handling code
-<pre lang="javascript">
-	document.parser.onerror = function(event){
-		throw new Error(event.message + " (" + event.filename + ":" + event.lineno + ")");
-	};
-</pre>
+<script src="https://gist.github.com/1541065.js?file=7"></script>
 is a neat little trick to help you debug your workers as errors do not show up in a debug console by default.
 
 Now the contents of our worker: (<strong>This must be in a separate file called Parser.js</strong>)
-<pre lang="javascript">
-/*
- * This is a Javascript Worker to parse wiki code into HTML
- *
- * The script will parse the following:
- * ===== Level 5 Title ===== -> <h5>Level 5 Title</h5>
- * ==== Level 4 Title ====   -> <h4>Level 4 Title</h4>
- * === Level 3 Title ===     -> <h3>Level 3 Title</h3>
- * == Level 2 Title ==       -> <h2>Level 2 Title</h2>
- * = Level 1 Title =         -> <h1>Level 1 Title</h1>
- * *Bold*                    -> <b>Bold</b>
- * _Italic_                  -> <i>Italic</i>
- */
 
-// Recieve message
-self.onmessage = function(event) {
-	self.postMessage(parseWiki(event.data));
-};
-
-
-
-/*
- * Function to parse the wiki text and return the html.
- *
- *  _w      - The wiki text
- *
- *  returns - String containing parsed HTML
- *
- */
-function parseWiki(_w) {
-
-	var t;
-	
-	// Parse the wiki data
-	t = _w.replace(/=====(.*?)=====/g, '<h5>$1</h5>');
-	t = t.replace(/====(.*?)====/g, '<h4>$1</h4>');
-	t = t.replace(/===(.*?)===/g, '<h3>$1</h3>');
-	t = t.replace(/==(.*?)==/g, '<h2>$1</h2>');
-	t = t.replace(/=(.*?)=/g, '<h1>$1</h1>');
-	t = t.replace(/\*(.*?)\*/g, '<b>$1</b>');
-	t = t.replace(/\_(.*?)\_/g, '<i>$1</i>');
-	t = t.replace(/\n/g, '<br />' );
-	
-	// Return the parsed data
-	return t;
-}
-</pre>
+<script src="https://gist.github.com/1541065.js?file=8"></script>
 
 I will not go into detail as the wiki parser is explained in the comments, but lets look at the core components:
-<pre lang="javascript">
-self.onmessage = function(event) {
-	self.postMessage(parseWiki(event.data));
-};
-</pre>
+<script src="https://gist.github.com/1541065.js?file=9"></script>
 This receives the message from wiki.html and then posts a message back with the data returned by the <em>parseWiki</em> function.
 
-<pre lang="javascript">
-function parseWiki(_w) {
-
-	var t;
-	
-	// Parse the wiki data
-	t = _w.replace(/=====(.*?)=====/g, '<h5>$1</h5>');
-	t = t.replace(/====(.*?)====/g, '<h4>$1</h4>');
-	t = t.replace(/===(.*?)===/g, '<h3>$1</h3>');
-	t = t.replace(/==(.*?)==/g, '<h2>$1</h2>');
-	t = t.replace(/=(.*?)=/g, '<h1>$1</h1>');
-	t = t.replace(/\*(.*?)\*/g, '<b>$1</b>');
-	t = t.replace(/\_(.*?)\_/g, '<i>$1</i>');
-	t = t.replace(/\n/g, '<br />' );
-	
-	// Return the parsed data
-	return t;
-}
-</pre>
+<script src="https://gist.github.com/1541065.js?file=10"></script>
 
 The <em>parseWiki</em> function runs a set of regular expressions to change the wiki text into HTML.
 
