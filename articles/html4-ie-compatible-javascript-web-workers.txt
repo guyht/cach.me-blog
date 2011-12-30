@@ -1,0 +1,49 @@
+{
+	"title" : "HTML4 and IE Compatible Web Workers",
+	"date" : "2011-02-23 07:05:03",
+	"author" : "Guy"
+}
+
+<div style="background-color: #ffffcc; border: 1px solid black; padding: 2px;">UPDATE: The script will now automatically detect if web workers are supported, so no more need for [if IE] tags!  Bien sur, the script will only invoke itself if it finds no web worker support.</div>
+Firstly, I need to make a few things clear.  This script will make your web workers compatible with non HTML5 compliant browsers.  However, this will come at a performance cost.  Your web workers will not be mult-threaded and will be executed synchronously with the rest of the javascript on your page.
+<h4>Well, whats the point then?</h4>
+Ah, well, the point is that by making your web workers functional in browsers that do not support HTML5, you remove the need to duplicated your code.
+
+Web workers are a really great feature (one of the very best in my opinion) of HTML5 (<a href="http://www.cach.me/blog/2011/01/javascript-web-workers-tutorial-parse-wiki-text-in-real-time/">see my post on web workers</a>), but it is difficult to use them in anything more than a 'experimental features' environment, because they are not compatible with a lot of browsers (*cough* IE) and, given that IE6 is still being widely used, it is likely that a large percentage of web users will not be able to make full use of web workers for quite a long time (although the vast majority will be completely oblivious to this).
+
+This puts developers in a conundrum.  Any web workers they develop will also have to be implemented as synchronous JavaScript for them to work in IE and older versisons of FireFox and Chrome.  This takes time, time costs money (yes it does) and so whats the point in using web workers when the performance boost is probably minimal for the sort of applications most of us are writing, and the majority of users wont be able to see that performance boost anyway.
+
+Web workers might be a revolutionary technology in the world of JavaScript, but with the current state of web browsers, it would almost always be a big mistake for developers to spend time building web workers to handle parts of their application.  The number of end users who would benefit simply would not justify the cost of developing the web workers (given that a synchronous version would also have to be developed).
+<h4>But... what if...</h4>
+...web workers could automatically detect if the browser they were running in supported them, and, if not, then simply run in a synchronous mode?  Well, that would suddenly make developing web workers a much more viable option.  The need for developing both a synchronous and web worker version of the code would no longer be required, the web worker itself would adapt to the browser that it was running in.  If the browser supports web workers, then the script can make use of the multi threaded framework and use this wonderful feature to its full potential, on the other hand, if web workers are not supported, the script will simply run in a synchronous mode alongside the rest of the JavaScript on the page.
+<h4>So, how can this be done</h4>
+What this script does is emulate a web worker, but run it in a synchronous mode, within its own namespace.  Simple!
+<h4>See it in action</h4>
+There are two working examples.  One demonstrating my wiki parser, and the other demonstrating a SHA-256 hash function.  The SHA-256 example uses some more complex features of web workers.
+<ul>
+	<li>Wiki Parser: <a href="http://guyht.github.com/GWorker/examples/parser/wiki.html">http://guyht.github.com/GWorker/examples/parser/wiki.html</a></li>
+	<li>SHA-256 Hash:<a href="http://guyht.github.com/GWorker/examples/sha-256/sha-256.html"> http://guyht.github.com/GWorker/examples/sha-256/sha-256.html</a></li>
+</ul>
+Note: The above examples will try to use web workers if they are supported.  Try opening up the examples in IE... the script detects that web workers are not supported and so the workers are run in synchronous mode.
+<h4>Whats the catch?</h4>
+Ah, there is always a catch.  You should note the following (also listed in the README file).
+<ul>
+	<li>Not all web workers will function with this script.  I have tested a few and found that some don't work for various reasons.  The main reason however, is generally because the web worker uses additional HTML5 features (e.g. canvases).</li>
+	<li>You will see a performance hit.  Web workers are executed synchronously, therefore if it is very computationally intensive, your pages will hang.  This is the price you pay to emulate web workers in non compatible browsers.</li>
+</ul>
+<strong>I have uploaded the script to my github repo:</strong>
+
+<a href="https://github.com/guyht/GWorker"><strong>https://github.com/guyht/GWorker</strong></a>
+
+<strong>Installation instructions are in the readme:</strong>
+
+<a href="https://github.com/guyht/GWorker/blob/master/README.md"><strong>https://github.com/guyht/GWorker/blob/master/README.md</strong></a>
+
+<strong>But its as simple as adding this to the head of your pages:</strong>
+<pre lang="HTML"><!-- Require GWorker script & jQuery -->
+
+<script src="jquery.js" type="text/javascript"><!--mce:0--></script>
+<script src="gworker.js" type="text/javascript"><!--mce:1--></script></pre>
+<strong>It is also worth looking at the examples if the installation instructions are a bit confusing.</strong>
+
+If you find a bug or are interested in contributing, feel free to fork the repository and issue pull requests.

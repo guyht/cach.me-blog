@@ -1,0 +1,37 @@
+{
+	"title" : "Giki - Realtime, asynchronous JavaScript parser and code highlighter",
+	"date" : "2011-03-13 22:37:54",
+	"author" : "Guy"
+}
+
+First of all, so that you know you are not wasting your time, <a href="http://guyht.github.com/Giki/examples/wiki.html">check out this demo</a>.
+
+A few months ago, I wrote a post on using <a href="http://www.cach.me/blog/2011/01/javascript-web-workers-tutorial-parse-wiki-text-in-real-time/">JavaScript Web Workers to parse wiki text in real time</a>.  I was amazed at how easy it was to create a live parser for wiki text, and using web workers, the performance was extremely good...  I have used the script to parse hundreds of lines of wiki text in real time with no noticeable latency.
+
+Using a the code from the web workers example as a base, and incorporating my GWorker library to simulate web workers in non HTML 5 compliant browsers, I am pleased to announce Giki, a realtime, asynchronous, pure javascript code parser.  The script is easily extensible through plugins, and parsers for any type of markup are very simple to write and use.  Since Giki is build on the web worker API, writing a new parser for it fairly basic.
+
+Right, enough waffle, time to look at an example.... here is a realtime BBCode parser.
+
+For simplicities sake I will assume that all your javascript files are stored in a subfolder called javascript.  This is not the way the git repository is set out so you will need to move a few files around.  The example supplied in the git repo, however, should work out of the box.
+
+In your html file, you will need to create a text area to input your BB Code, and a div to receive the parsed code.
+<pre lang="html">
+<div id="bbcode_div"></div>
+<textarea id="bbcode_ta" cols="20" rows="5"></textarea></pre>
+Then, in your javascript file (or in a script tag in your HTML page) you simply need to invoke Giki.
+<pre lang="javascript">
+new Giki({
+ 'div' : 'bbcode_div',
+ 'text_area' : 'bbcode_ta',
+ 'parser' : 'javascript/bbcode.js'
+});</pre>
+The above code specifies the ids or the div and textarea, and tells giki which parser should be used.  Note that you could supply <strong>any</strong> parser here, so long as it is implemented as a web worker.
+
+And thats it! Enter some BBCode in the textarea and watch as it gets parsed in real time into the div.
+
+I have put some examples up on my github page, so you can <a href="http://guyht.github.com/Giki/examples/wiki.html">see it in action</a>.
+
+Thats all for now, but I am going to add a new post shortly that will explain how to customise the parsers.  If you don't want to wait till then, have a look at the source code for the examples, its very easy to work out whats going on.
+
+You can check out my GitHub repo <a href="https://github.com/guyht/Giki">here</a>,
+or download the latest version <a href="https://github.com/guyht/Giki/zipball/master">here</a>.

@@ -1,0 +1,21 @@
+{
+	"title" : "Giki gets a new design",
+	"date" : "2011-06-02 23:24:23",
+	"author" : "Guy"
+}
+
+I have redesigned the GitHub home page for my <a href="http://guyht.github.com/Giki/" target="_blank">Giki</a> project.  Although my design skills are not anything to write home about, I think it looks ok, and its certainly a large improvement over what it looked like before.
+
+One feature that I am particularly proud of is the <em>try me </em>button on the left hand side of the page.  When clicked, a text box is transitioned onto the page (using a jquery animation) and the top part of the page can be edited in real time using Giki.
+
+&nbsp;
+<p style="text-align: center;"><a href="http://guyht.github.com/Giki/"><img class="size-large wp-image-255 aligncenter" title="Giki Screenshot" src="http://www.cach.me/blog/wp-content/uploads/2011/06/giki-shot-1024x506.png" alt="Giki Screenshot" width="614" height="304" /></a></p>
+There is also a separate 'preview' box at the bottom of the page that allows you to render BBCode in real time into a div below it.  Feel free to give it a go.
+
+I have really enjoyed working on this software so far and I think it has a lot of potential, especially when combined with my <a href="https://github.com/guyht/GWorker" target="_blank">GWorker</a> library that makes the web workers backwards compatible with browsers that do not natively support them.
+
+Am hoping to add a couple more features in the near future so keep an eye on it.
+
+GitHub repo: <a href="https://github.com/guyht/Giki" target="_blank">https://github.com/guyht/Giki</a>
+
+&nbsp;

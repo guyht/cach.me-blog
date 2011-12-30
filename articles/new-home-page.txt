@@ -1,0 +1,7 @@
+{
+	"title" : "New Home Page",
+	"date" : "2011-07-17 14:43:47",
+	"author" : "Guy"
+}
+
+After months of displaying the default install splash for Zend Framework, I decided it was time I had some sort of semblance of a home page.  What I have put together is rushed to say the least and will <em>hopefully</em> see a large number of improvements over the next few weeks, but if you want to check it out, have a look at <a href="http://www.cach.me" target="_blank">http://www.cach.me</a>.  At the moment it just contains some links to my social networking outlets but I intent to add an 'about', 'contact' and 'projects' section.  It would be nice to be able to have something a bit more sophisticated, but I just dont have time at the moment.  Most of the spare time I get in front of my computer at the moment is spent on a Mac App I am writing.  Its very simple and I hope to get it submitted to the mac app store over the next couple of weeks.  More details to come.

@@ -1,205 +1,170 @@
 {
-	"title" : "Using branches to manage documentation on github",
-	"date" : "12/08/2010",
+	"title" : "A GIT Tutorial: Using branches to manage documentation on Github",
+	"date" : "2010-12-08 21:58:16",
 	"author" : "Guy"
 }
 
-I really like using Github to manage my projects. The subscription plans are very reasonable and I find that the service they offer is excellent (with only a few exceptions https://github.com/blog/744-today-s-outage).
+I really like using Github to manage my projects. The subscription plans are very reasonable and I find that the service they offer is excellent (with only a few exceptions <a href="https://github.com/blog/744-today-s-outage">https://github.com/blog/744-today-s-outage</a>).
 
-Github has a built in wiki that can be enabled for any repository. The wiki is easy to use and is itself a git repository (as will all things Github). However, for some of my smaller projects I often find that I forget to update the wiki when pushing changes to the repository, and often, changes that I make to the readme and changelog files are duplicated in the wiki. Wouldn’t it be great if changes you made to your readme and changelog files were automatically reflected in your wiki…. luckily git makes this a fairly simple process.
+Github has a built in wiki that can be enabled for any repository. The wiki is easy to use and is itself a git repository (as will all things Github). However, for some of my smaller projects I often find that I forget to update the wiki when pushing changes to the repository, and often, changes that I make to the readme and changelog files are duplicated in the wiki.  Wouldn't it be great if changes you made to your readme and changelog files were automatically reflected in your wiki.... luckily git makes this a fairly simple process.
 
-Create a new branch in your git repository to track changes to the documentation
-Create the documentation files in your new branch
-Merge the changes from your documentation branch into your master branch and wiki
-First, lets set up a repository. Create a new repository in github (mine is called ghtdoc). Now lets create it on our local system and push it to github.
+<ol>
+	<li>Create a new branch in your git repository to track changes to the documentation</li>
+	<li>Create the documentation files in your new branch</li>
+	<li>Merge the changes from your documentation branch into your master branch and wiki</li>
+</ol>
 
-    mkdir ghtdoc
-    cd ghtdoc
-    git init
-    touch somefile.txt
-    git add somefile.txt
-    git commit -m 'First commit'
-    git remote add origin git@github.com:guyht/ghtdoc.git  # Replace this with the path to 
+First, lets set up a repository.  Create a new repository in github (mine is called ghtdoc).  Now lets create it on our local system and push it to github.
+<pre lang="bash">mkdir ghtdoc
+cd ghtdoc
+git init
+touch somefile.txt
+git add somefile.txt
+git commit -m 'First commit'
+git remote add origin git@github.com:guyht/ghtdoc.git  # Replace this with the path to your repository
+git push origin master</pre>
+This has created and empty file called <em>somefile.txt</em>, added it to the repository and pushed the changes back to github.  If you browse to your repository on github you will see the file listed under the source tab.
 
-your repository
-git push origin master
-This has created and empty file called somefile.txt, added it to the repository and pushed the changes back to github. If you browse to your repository on github you will see the file listed under the source tab.
-
-If you have not yet configured git you might get a message asking you to set your user.name and user.email. You can easily set these using the
-
-    git config --global user.name "Your Name"
-    git config --global user.email you@example.com
-
-commands. Although it will not make a lot of difference for this example, you should always set your user.name and user.email as git uses these to identify you as the person who committed the code.
+If you have not yet configured git you might get a message asking you to set your user.name and user.email.  You can easily set these using the
+<pre lang="bash">git config --global user.name "Your Name"
+git config --global user.email you@example.com</pre>
+commands.  Although it will not make a lot of difference for this example, you should always set your user.name and user.email as git uses these to identify you as the person who committed the code.
 
 When you run git push origin master, you should get a message similar to
+<pre lang="bash">Counting objects: 3, done.
+Writing objects: 100% (3/3), 221 bytes, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://guyht@github.com/guyht/ghtdoc.git
+ * [new branch]      master -> master</pre>
+If this is the case then the file you have just created has been successfully pushed to your new repository on github.  If you browse to your repository on the github website, you should see the file listed in the master branch of your new repository.
 
-    Counting objects: 3, done.
-    Writing objects: 100% (3/3), 221 bytes, done.
-    Total 3 (delta 0), reused 0 (delta 0)
-    To https://guyht@github.com/guyht/ghtdoc.git
-     * [new branch]      master -> master
+<img class="alignnone size-full wp-image-59" title="Github Repository" src="http://www.cach.me/blog/wp-content/uploads/2010/12/commit.jpg" alt="Github Repository Browser" width="750" />
 
-If this is the case then the file you have just created has been successfully pushed to your new repository on github. If you browse to your repository on the github website, you should see the file listed in the master branch of your new repository.
+Now we want to create a branch for our documentation files.  Normally, when branching in git, the new branch will contain the same files as the current branch, in this case, creating a branch the normal way would result in a new branch with the file 'somefile.txt' in it.  Because the sole purpose of our new branch is to track changes to documentation files, we want to create an empty branch.
+<pre lang="bash">git symbolic-ref HEAD refs/heads/docs
+rm .git/index
+git clean -fdx</pre>
+NOTE: When you run the <span style="font-family: Consolas, Monaco, 'Courier New', Courier, monospace; line-height: 18px; font-size: 12px; white-space: pre;">git clean -fdx </span>command, you should get the message <span style="font-family: Consolas, Monaco, 'Courier New', Courier, monospace; line-height: 18px; font-size: 12px; white-space: pre;">Removing somefile.txt</span>.
 
+Now we are going to add our documentation files.  For my repository, I am going to create 3 files, README.md, INSTALL.md and CHANGELOG.md.  You can create any combination of files but it is good to have one named README.md as github helpfully renders this file on the source page of a repository.
 
+For my documentation files I tend to use <a href="http://en.wikipedia.org/wiki/Markdown">markdown</a> (.md extension) to format my pages.  I would suggest you use this method as it means that your documentation will be rendered in a consistent manner when viewing the pages in the wiki or other areas of github.  Markdown also allows you to quickly create and easily maintain you documentation files.
 
-Now we want to create a branch for our documentation files. Normally, when branching in git, the new branch will contain the same files as the current branch, in this case, creating a branch the normal way would result in a new branch with the file ‘somefile.txt’ in it. Because the sole purpose of our new branch is to track changes to documentation files, we want to create an empty branch.
+<em>Note: If you already have documentation files in your master branch and want to keep the log histories, this can be done by checking out the specific files into the docs branch.  I will explain this process in another post.</em>
+<pre lang="bash">touch README.md
+touch INSTALL.md
+touch CHANGELOG.md
+git add README.md
+git add INSTALL.md
+git add CHANGELOG.md
+git commit -m "Initial commit on docs branch"
+# Now push the changes up to github MAKE SURE YOU PUSH TO DOCS, NOT MASTER
+git push origin docs</pre>
+<strong>Note: You must push the changes to the docs branch on your remote repository, not the master branch.</strong>
 
-    git symbolic-ref HEAD refs/heads/docs
-    rm .git/index
-    git clean -fdx
+All being well, you should now have a branch called docs which has been pushed to your remote repository on github.  If you browse to github, the new branch should now appear in the 'Switch Branches' dropdown.
 
-NOTE: When you run the git clean -fdx command, you should get the message Removing somefile.txt.
+<img class="alignnone size-full wp-image-92" title="Docs Branch on Github" src="http://www.cach.me/blog/wp-content/uploads/2010/12/ghtdoc-branches.jpg" alt="Docs Branch on Github" width="750" />
 
-Now we are going to add our documentation files. For my repository, I am going to create 3 files, README.md, INSTALL.md and CHANGELOG.md. You can create any combination of files but it is good to have one named README.md as github helpfully renders this file on the source page of a repository.
+You can now freely switch between master and docs branches using the <span style="font-family: Consolas, Monaco, 'Courier New', Courier, monospace; line-height: 18px; font-size: 12px; white-space: pre;">git checkout master</span> and <span style="font-family: Consolas, Monaco, 'Courier New', Courier, monospace; line-height: 18px; font-size: 12px; white-space: pre;">git checkout docs</span> commands.
 
-For my documentation files I tend to use markdown (.md extension) to format my pages. I would suggest you use this method as it means that your documentation will be rendered in a consistent manner when viewing the pages in the wiki or other areas of github. Markdown also allows you to quickly create and easily maintain you documentation files.
-
-Note: If you already have documentation files in your master branch and want to keep the log histories, this can be done by checking out the specific files into the docs branch. I will explain this process in another post.
-
-    touch README.md
-    touch INSTALL.md
-    touch CHANGELOG.md
-    git add README.md
-    git add INSTALL.md
-    git add CHANGELOG.md
-    git commit -m "Initial commit on docs branch"
-    # Now push the changes up to github MAKE SURE YOU PUSH TO DOCS, NOT MASTER
-    git push origin docs
-
-Note: You must push the changes to the docs branch on your remote repository, not the master branch.
-
-All being well, you should now have a branch called docs which has been pushed to your remote repository on github. If you browse to github, the new branch should now appear in the ‘Switch Branches’ dropdown.
-
-
-
-You can now freely switch between master and docs branches using the git checkout master and git checkout docs commands.
-
-Now, we are going to merge the docs branch into the master branch. Start by checking out the master branch git checkout master and then use the merge command to pull the changes made in docs into the master branch git merge docs.
-
-    git checkout master
-    git merge docs
-
-If you do a ls now, you should see your documentation files have been added to the master branch.
+Now, we are going to merge the <em>docs</em> branch into the <em>master</em> branch.  Start by checking out the master branch <span style="font-family: Consolas, Monaco, 'Courier New', Courier, monospace; line-height: 18px; font-size: 12px; white-space: pre;">git checkout master</span> and then use the merge command to pull the changes made in docs into the master branch <span style="font-family: Consolas, Monaco, 'Courier New', Courier, monospace; line-height: 18px; font-size: 12px; white-space: pre;">git merge docs</span>.
+<pre lang="bash">git checkout master
+git merge docs</pre>
+If you do a <span style="font-family: Consolas, Monaco, 'Courier New', Courier, monospace; line-height: 18px; font-size: 12px; white-space: pre;">ls</span> now, you should see your documentation files have been added to the master branch.
 
 You can now push your changes up to your remote repository
-
-    git push origin master
-
+<pre lang="bash">git push origin master</pre>
 And your documentation files will now show up on github in the source tab of your master branch.
 
-The first part of our setup is now complete. You can make changes to your readme file and merge the changes into the master branch. Because git is only interested in differences between files, merging between the docs and master branch will not affect any changes you have made to source files in the master branch.
+The first part of our setup is now complete.  You can make changes to your readme file and merge the changes into the master branch.  Because git is only interested in differences between files, merging between the docs and master branch will not affect any changes you have made to source files in the master branch.
 
 To demonstrate this, lets add a title to our README.md file, merge it with the master branch and push the changes up to github.
+<pre lang="bash">git checkout docs
+echo "Ghtdoc Readme File" > README.md
+git commit -a -m "Adding readme title"
+# Push the changes up to github
+git push origin docs
+# Checkout the master branch
+git checkout master
+# Lets merge!
+git merge docs
+# Push the changes up to github
+git push origin master</pre>
+Now, if you look at the readme file in your master branch, you will see that the changes we made to it in the docs branch have now been merged into the master branch.  Furthermore, browsing to the 'commits' tab in the master branch shows that the commit log for the readme file has also been merged into the commit log for the master branch.  This is an important feature as it means that we never loose any commit history.
 
-    git checkout docs
-    echo "Ghtdoc Readme File" > README.md
-    git commit -a -m "Adding readme title"
-    # Push the changes up to github
-    git push origin docs
-    # Checkout the master branch
-    git checkout master
-    # Lets merge!
-    git merge docs
-    # Push the changes up to github
-    git push origin master
-
-Now, if you look at the readme file in your master branch, you will see that the changes we made to it in the docs branch have now been merged into the master branch. Furthermore, browsing to the ‘commits’ tab in the master branch shows that the commit log for the readme file has also been merged into the commit log for the master branch. This is an important feature as it means that we never loose any commit history.
-
-Next, we want to pull the changes into our wiki page on github. In the true spirit of git, each wiki on github is a git repository. This means that we can clone, push, pull and do all sorts of other saucy things with them, including merging our doc files into the wiki.
+Next, we want to pull the changes into our wiki page on github.  In the true spirit of git, each wiki on github is a git repository.  This means that we can clone, push, pull and do all sorts of other saucy things with them, including <strong>merging our doc files into the wiki.</strong>
 
 There are several styles that you can adopt for the layout of your wiki page, but I tend to use the following:
-
-              README.md             ---->    Wiki Homepage
+<pre>              README.md             ---->    Wiki Homepage
               CHANGELOG.md          ---->    Changelog
-              INSTALL.md            ---->    Installation Instructions
+              INSTALL.md            ---->    Installation Instructions</pre>
+First, lets tell github we want to create a wiki.  Click on the 'Wiki' tab on the main toolbar (if it is not there then you might have turned wikis off in you 'Repository Administration', simply click on the admin button and enable wikis for that repository).
 
-First, lets tell github we want to create a wiki. Click on the ‘Wiki’ tab on the main toolbar (if it is not there then you might have turned wikis off in you ‘Repository Administration’, simply click on the admin button and enable wikis for that repository).
+<img class="alignnone size-full wp-image-102" title="Github Wiki Bar" src="http://www.cach.me/blog/wp-content/uploads/2010/12/github-wiki.jpg" alt="" width="750" />
 
+Click on 'Create' to tell github to build the repository for the wiki and if all goes well you should see the default wiki home page for your repository.
 
-
-Click on ‘Create’ to tell github to build the repository for the wiki and if all goes well you should see the default wiki home page for your repository.
-
-Below the main repository menu bar, you should see the wiki sub-menu bar. Click on ‘Git Access’ and you should see the git url for your wiki. Mine is git@github.com:guyht/ghtdoc.wiki.git
+Below the main repository menu bar, you should see the wiki sub-menu bar.  Click on 'Git Access' and you should see the git url for your wiki.  Mine is <span style="font-family: Consolas, Monaco, 'Courier New', Courier, monospace; line-height: 18px; font-size: 12px; white-space: pre;">git@github.com:guyht/ghtdoc.wiki.git</span>
 
 First lets clone our wiki.
+<pre lang="bash">git clone git@github.com:guyht/ghtdoc.wiki.git</pre>
+Notice that git has cloned the repository into a folder called <em>ghtdoc.wiki</em>.
 
-    git clone git@github.com:guyht/ghtdoc.wiki.git
+Now we are going to add our main repository as a remote.  This tells git that we want to track changes from files that reside in external repositories that are not the one we created the clone from.  Go back to your main repository and copy the git url.  Then tell git to add the remote.  You have to specify a name for each remote (the default name that git sets up for the repository that we cloned from is 'master'), so I am going to call it 'ghtdoc'.
+<pre lang="bash">git remote add ghtdoc git@github.com:guyht/ghtdoc.git</pre>
+You have now added your main repository as a remote, named 'ghtdoc' to your wiki repository.  You can confirm this by typing <span style="font-family: Consolas, Monaco, 'Courier New', Courier, monospace; line-height: 18px; font-size: 12px; white-space: pre;">git remote show ghtdoc</span>.  You should see the docs and master branches listed as 'Remote branches'.
 
-Notice that git has cloned the repository into a folder called ghtdoc.wiki.
+To merge your documentation files into the wiki, its as simple as pulling the changes from the docs branch.  The <a href="http://www.kernel.org/pub/software/scm/git/docs/git-pull.html">git pull</a> command is simply a combination of a fetch and merge command.  It will fetch the changes from the remote repository and merge them into the current branch.  So we want to pull the changes into the wiki, specifying <em>ghtdoc</em> as the remote repository and docs as the branch on the remote to merge with.
+<pre lang="bash">git pull ghtdoc docs</pre>
+Git will spit out some warnings about <em>no common commits</em>.  This is because it cant find any relationship between the files in the wiki repository and the files on our remote repository.  Once it has stopped complaining, you should see some output indicating the merge has been <em>made by recursive</em>.  An <em>ls</em> should now show all your docs files as well as a file called <em>Home.md</em> (this is a file that is automatically created by github when you create a wiki).
 
-Now we are going to add our main repository as a remote. This tells git that we want to track changes from files that reside in external repositories that are not the one we created the clone from. Go back to your main repository and copy the git url. Then tell git to add the remote. You have to specify a name for each remote (the default name that git sets up for the repository that we cloned from is ‘master’), so I am going to call it ‘ghtdoc’.
+In order to create our wiki pages, we need to rename our files.  README.md becomes Home.md, CHANGELOG.md becomes Changelog.md and INSTALL.md becomes Installation_Instructions.md.  One of the features of git which sets it apart from other versioning systems is that it can track files even if they are moved or renamed.  This is not only very useful, but also a crucial feature for our wiki as it allows us to easily rename our documentation files.
 
-    git remote add ghtdoc git@github.com:guyht/ghtdoc.git
-
-You have now added your main repository as a remote, named ‘ghtdoc’ to your wiki repository. You can confirm this by typing git remote show ghtdoc. You should see the docs and master branches listed as ‘Remote branches’.
-
-To merge your documentation files into the wiki, its as simple as pulling the changes from the docs branch. The git pull command is simply a combination of a fetch and merge command. It will fetch the changes from the remote repository and merge them into the current branch. So we want to pull the changes into the wiki, specifying ghtdoc as the remote repository and docs as the branch on the remote to merge with.
-
-    git pull ghtdoc docs
-
-Git will spit out some warnings about no common commits. This is because it cant find any relationship between the files in the wiki repository and the files on our remote repository. Once it has stopped complaining, you should see some output indicating the merge has been made by recursive. An ls should now show all your docs files as well as a file called Home.md (this is a file that is automatically created by github when you create a wiki).
-
-In order to create our wiki pages, we need to rename our files. README.md becomes Home.md, CHANGELOG.md becomes Changelog.md and INSTALL.md becomes Installation_Instructions.md. One of the features of git which sets it apart from other versioning systems is that it can track files even if they are moved or renamed. This is not only very useful, but also a crucial feature for our wiki as it allows us to easily rename our documentation files.
-
-Remember to use git mv not simply mv.
-
-    # Remove the default Home.md file
-    git rm Home.md
-    # Rename our README.md file
-    git mv README.md Home.md
-    git commit -a -m "Added README.md as Home.md"
-    git push origin master
-
+Remember to use <strong>git mv</strong> not simply <strong>mv</strong>.
+<pre lang="bash"># Remove the default Home.md file
+git rm Home.md
+# Rename our README.md file
+git mv README.md Home.md
+git commit -a -m "Added README.md as Home.md"
+git push origin master</pre>
 If you now browse to your wiki page on github, you should see that the default home page has been replaced by the contents of our README.md file.
 Now lets add our INSTALL.md file
+<pre lang="bash">git mv INSTALL.md Installation_Instructions.md
+git commit -a -m "Added installation instructions"
+git push origin master</pre>
+Browse again to your wiki, click on <em>pages</em> and voila, your installation instructions page is there.  We have not yet added any content to the install file so it just displays the title.
 
-    git mv INSTALL.md Installation_Instructions.md
-    git commit -a -m "Added installation instructions"
-    git push origin master
-
-Browse again to your wiki, click on pages and voila, your installation instructions page is there. We have not yet added any content to the install file so it just displays the title.
-
-At this stage, we have finished setting up our repository so that we can merge our docs branch with both our master branch and the wiki. Now lets use some of that awesome power to add some proper documentation.
+At this stage, we have finished setting up our repository so that we can merge our docs branch with both our master branch and the wiki.  Now lets use some of that awesome power to add some proper documentation.
 
 Lets go into our docs branch and made some edits to the README.md file.
-
-    cd ghtdoc
-    git checkout docs
-
+<pre lang="bash">cd ghtdoc
+git checkout docs</pre>
 Open up README.md in your favourite editor (vim for me) and add some content.
+<pre># Ghtdoc Readme File
 
-    # Ghtdoc Readme File
-
-    ## Welcome to ghtdoc.
-
+## Welcome to ghtdoc.
 This readme file is used to demonstrate how we can use a docs branch to maintain documentation
-files accross multiple branches and even repositories in git.
+files accross multiple branches and even repositories in git.</pre>
 Save the file and commit it.
-
-    git commit -a -m "Updated readme file"
-    git push origin docs
-
-At this stage, the changes to our documentation have been committed to the docs branch on our main repository and we have pushed the changes up to github (have a look at the docs branch on github to check). Now merge the changes with the master branch and the wiki.
-
-    git checkout master
-    git merge docs
-    git push origin master
-
+<pre lang="bash">git commit -a -m "Updated readme file"
+git push origin docs</pre>
+At this stage, the changes to our documentation have been committed to the docs branch on our main repository and we have pushed the changes up to github (have a look at the docs branch on github to check).  Now merge the changes with the master branch and the wiki.
+<pre lang="bash">git checkout master
+git merge docs
+git push origin master</pre>
 And update the wiki
-
-    cd ../ghtdoc.wiki
-    git pull ghtdoc docs
-    git push origin master
-
+<pre lang="bash">cd ../ghtdoc.wiki
+git pull ghtdoc docs
+git push origin master</pre>
 All done!! Note, git is very clever here and remembers that we renamed README.md to Home.md and therefore pulls the changes into the correct file (this would be the same case if we had edited the install file).
 
-Now point your browser to github and admire your work. The changes you have made to your documentation have now been merged into your master branch and the wiki.
+Now point your browser to github and admire your work.  The changes you have made to your documentation have now been merged into your master branch and the wiki.
 
 For every further change you make to your documentation, just repeat the above steps.
-
-Commit your changes to the docs branch and push the changes to github
-Checkout your master branch and merge with your docs branch
-Browse to your wiki repository and merge your master branch with the remote docs branch
+<ol>
+	<li>Commit your changes to the docs branch and push the changes to github</li>
+	<li>Checkout your master branch and merge with your docs branch</li>
+	<li>Browse to your wiki repository and merge your master branch with the remote docs branch</li>
+</ol>
 Easy!

@@ -1,0 +1,46 @@
+{
+	"title" : "Weierophinney is a genius, Vim task lists, wikis and more",
+	"date" : "2011-01-08 22:46:49",
+	"author" : "Guy"
+}
+
+Weierophinney as just published another gem of a blog post, talking about some of the tools he uses with VIM.
+
+<a href="http://weierophinney.net/matthew/archives/249-Vim-Toolbox,-2010-Edition.html" target="_blank">http://weierophinney.net/matthew/archives/249-Vim-Toolbox,-2010-Edition.html</a>
+<h2>Its a lot more powerful than you think</h2>
+Vim is sooo much more powerful then most people realize.  It has built in support for a whole host of features (spell checking, auto completion, tags, markers, split windows, code folding, syntax highlighting, tabs, macros just to name a few that I use) and is easily extendible, with a whole host of community driven plugins, which add some really great features.
+<h2>Using VIM as an organizer</h2>
+Choosing vim to write your code should not be a question you have to ask yourself, but using vim as your organizer is something that you might not have considered, but maybe you should.  Expanding on Weierophinney's excellent post, I would like to expand on a couple of plugins that he mentioned which I have found to be really excellent, namely <strong>pathogen, vim-task and vim-wiki</strong>.
+<h3>Pathogen</h3>
+Pathogen is a plugin for vim that makes installing additional plugins much easier.  I know this sounds a bit strange, but it really does make a huge difference, especially when we come to use git submodules to manage plugins.  The <em>Pathogen</em> plugin looks for a folder named <strong>bundle</strong> in your <strong>.vim</strong> folder and loads any plugins contained within it.  This allows you to properly manage your plugins as they are organized in a much more logical way.  Instead of having to download a plugin, and copy the contents of each subfolder (plugin, doc, sytax, ftplugin etc...) to your <em>.vim/subfolder</em> directory, you can simply dump the entire contents of the plugin into the <em>bundle</em> directory.  Not only does this make installing plugins much easier, but it also makes updating them a dodle (<em>something that is much more important imo</em>).
+<pre>.vim/
+ bundle/
+  some-plugin
+  another-plugin
+  and-another</pre>
+The use of git submodules to manage plugins relies on pathogen being installed.
+Installation of Pathogen is really simple, simply download the zip file from <a href="http://www.vim.org/scripts/script.php?script_id=2332">http://www.vim.org/scripts/script.php?script_id=2332</a> and extract it to you <em>.vim</em> directory.  The package contains a pathogen.vim file that gets added to your .vim/autoload directory.  This is the file that will get loaded when you start up vim and tell it to look for other plugins.  Now create a folder called <strong>bundle</strong> in your .vim directory, and you are ready to get cracking with submodules.  Any files now added to the bundle directory will get automatically loaded by vim when you start it.
+<h3>Vim-Task</h3>
+Vim-Task is a really simple plugin (the source code is only about 20 lines long) but is unbelievebly useful.  If you were to correlate number of lines of source code to usefulness of the plugin, this would take first place guarenteed.  Vim-Task looks for any file names todo.txt, or with the .todo extension (more filetypes can easily be added) and turns them in to task lists.  A task starts with a '-' when incomplete, which is changed to a tick (or a '+' in my case as my font does not support ticks), with green italic text, when the task is complete.  Toggling of a task is mapped by default to Ctr+Cmd+Enter, but Weierophinney has changed this to <strong>&lt;leader&gt;m</strong>, a much more elegant solution.
+The reason I really like using Vim-Task is because it is very lightweight.  I am not looking for a hugely complicated solution, but I like to be able to easily and quickly create and manage my task lists.  Vim-Task allows me to do exactly this.
+<h3>Vim-Wiki</h3>
+Vim-Wiki is a fully fledged, personal wiki for Vim.  It might seem strange at first that you would want to use Vim as a personal wiki, but having come accross Vim-Task and Vim-Wiki, Vim is now my complete personal organiser.  I use it to keep todo lists, write notes, draft blog posts, even write recepies!  It is very easy to use, and has a small but powerful syntax library.  Links are created using CamelCase, and are opened by placing the cursor on the link and hitting return.  If the page that the link references has not yet been created, then Vim-Wiki creates it for you.  Headers are created using = Header 1 =, == Header 2 == and I often use *bold* &amp; _italic_.  Best of all, to access Vim-Wiki, simply open up vim and type ww.  You will be presented with your wiki home... mine looks something like
+<pre>MyDiary
+ToDo
+MyRecepies
+BlogPosts</pre>
+Each of the above links to the relevent wiki page.
+
+Now, Vim-Wiki is pretty cool on its own, but imagine the potential if it was possible to integrate Git and Vim-Task!
+<h3>Vim-Wiki-Task-Git</h3>
+To complete my personal organiser, I have (using Weierophinney's techniques), integrated Vim-Task into Vim-Wiki and use Git to track changes to my wiki and make it acessible from anywhere.  This also has the added benefit that my wiki is both versioned and backed up.  Although I don't use it personally, the Fugitive git plugin for vim comes very hightly recommended and integrates well with the wiki.
+Vim-Task integration was quite simple (many thanks Weierophinney) and allows you to create tasks directly in your wiki by starting the line with a '-'.
+<h3>Git Repos</h3>
+Weierophinney's repository can be found at http://git.mwop.net/?a=summary&amp;p=vimrc
+
+My repositories can be found at <a href="https://github.com/guyht/vim-task/tree/alt-font">https://github.com/guyht/vim-task/tree/alt-font</a> for vim-task
+
+and <a href="https://github.com/guyht/vimwiki/tree/alt-font">https://github.com/guyht/vimwiki/tree/alt-font</a> for vim-wiki with vim-task integration
+
+You can also find my vimrc configuration on my github page.
+<h3></h3>
