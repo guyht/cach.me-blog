@@ -9,13 +9,13 @@
 	margin-left: auto;
 	width: 600px;
 	margin-bottom: 50px;
+	text-align: center;
 }
 
 .title, .title a {
 	color: black;
 	text-decoration: none;
 	font-size: 32px;
-	text-align: center;
 	width: 600px;
 }
 
@@ -72,15 +72,6 @@ body {
 
 a:hover {
 	font-weight: bold;
-}
-
-._404 {
-	font-size: 28px;
-	text-align: center;
-	margin-top: 100px;
-	margin-right: auto;
-	margin-left: auto;
-	width: 500px;
 }
 
 .footer {
