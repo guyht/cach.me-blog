@@ -25,17 +25,17 @@ Now, I will show you how to create a JavaScript Web Worker that will receive som
 <strong>NOTE: You will need an HTML5 compatible browser for the following to work.  This has been tested to work on Chrome and Safari, it has not been tested in Firefox but may work, it definitely will not work in IE.</strong>
 
 Registering a new web worker is very easy:
-<script src="https://gist.github.com/1541065.js?file=1"></script>
+<script src="https://gist.github.com/1541065.js?file=1.js"></script>
 Workers communicate with your scripts using <em>messages</em>.
 
 The following will open up an alert box containing any messages sent from the worker.
-<script src="https://gist.github.com/1541065.js?file=2"></script>
+<script src="https://gist.github.com/1541065.js?file=2.js"></script>
 And to send messages to a worker
-<script src="https://gist.github.com/1541065.js?file=3"></script>
+<script src="https://gist.github.com/1541065.js?file=3.js"></script>
 But what about our worker?
 
 Workers must be housed in their own files, I have named mine <strong>worker.js</strong>
-<script src="https://gist.github.com/1541065.js?file=4"></script>
+<script src="https://gist.github.com/1541065.js?file=4.js"></script>
 This will simply send the message received from the script back.
 
 This is not very useful so lets expand our script a bit so we can create our wiki parser. <em>Browse to the bottom of this post for a sneak preview of it!</em>
@@ -45,14 +45,14 @@ This is not very useful so lets expand our script a bit so we can create our wik
 Lets create some basic HTML first.  Create a page called wiki.html and add the following
 
 
-<script src="https://gist.github.com/1541065.js?file=5"></script>
+<script src="https://gist.github.com/1541065.js?file=5.js"></script>
 
 Now we need to define the <em>init()</em> and <em>parse()</em> functions. (Note: the <em>parse()</em> function will be triggered every time a key is released in the text area.
 
 Add the following just below the <em>body</em> tag
 
 
-<script src="https://gist.github.com/1541065.js?file=6"></script>
+<script src="https://gist.github.com/1541065.js?file=6.js"></script>
 
 
 The code can be summarised as follows:
@@ -64,18 +64,18 @@ The code can be summarised as follows:
 <li> The <em>parse</em> function simply sends a message to the worker with the contents of the text area, every time it is called (in our case this will be every time a keyup event occurs in the textarea)</li></ul>
 
 The error handling code
-<script src="https://gist.github.com/1541065.js?file=7"></script>
+<script src="https://gist.github.com/1541065.js?file=7.js"></script>
 is a neat little trick to help you debug your workers as errors do not show up in a debug console by default.
 
 Now the contents of our worker: (<strong>This must be in a separate file called Parser.js</strong>)
 
-<script src="https://gist.github.com/1541065.js?file=8"></script>
+<script src="https://gist.github.com/1541065.js?file=8.js"></script>
 
 I will not go into detail as the wiki parser is explained in the comments, but lets look at the core components:
-<script src="https://gist.github.com/1541065.js?file=9"></script>
+<script src="https://gist.github.com/1541065.js?file=9.js"></script>
 This receives the message from wiki.html and then posts a message back with the data returned by the <em>parseWiki</em> function.
 
-<script src="https://gist.github.com/1541065.js?file=10"></script>
+<script src="https://gist.github.com/1541065.js?file=10.js"></script>
 
 The <em>parseWiki</em> function runs a set of regular expressions to change the wiki text into HTML.
 
@@ -95,6 +95,7 @@ Now, here it is in action (assuming you have an HTML5 compatible browser):
 function parse(obj) {
 	document.parser.postMessage(obj.value);
 }</script>
+
 <style type='text/css'>
 div#wiki_div {
 padding-bottom: 20px;
@@ -108,6 +109,7 @@ border-style: solid;
 border-color: #979797;
 }
 </style>
+
 <div id='wiki_div'></div><br />
 <textarea id='wiki_textarea' onkeyup='parse(this)' cols='75' rows='10'>= Header 1 =
 == Header 2==
@@ -115,4 +117,5 @@ border-color: #979797;
 This text is normal</textarea>
 <script type='text/javascript'>init();</script>
 
+<br />
 <a href="http://www.cach.me/blog/wp-content/uploads/2011/01/Wiki.zip">Click here to download the working HTML and JS files</a>
