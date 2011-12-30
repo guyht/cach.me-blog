@@ -25,11 +25,6 @@
 
 .header .date {
 	width: 200px;
-	float: right;
-}
-
-.header .title {
-	float: left;
 }
 
 .header .title, .header a {
@@ -37,12 +32,13 @@
 	font-style: italic;
 	font-size: 25px;
 	color: #790002;
+	text-align: left;
 }
 
 .header .date {
 	text-decoration: none;
 	font-style: italic;
-	font-size: 9px;
+	font-size: 14px;
 	color: #790002;
 }
 

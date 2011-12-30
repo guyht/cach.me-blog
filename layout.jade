@@ -15,9 +15,9 @@ body
 	- each article in articles
 		div.article
 			div.header
-				div.date !{article.date_str}
 				div.title
 					<a href='!{article.url}'>!{article.title}</a>
+				div.date !{article.date_str}
 			div.body !{article.body}
 
 	// Please do not remove
