@@ -25,13 +25,11 @@ Now, I will show you how to create a JavaScript Web Worker that will receive som
 <strong>NOTE: You will need an HTML5 compatible browser for the following to work.  This has been tested to work on Chrome and Safari, it has not been tested in Firefox but may work, it definitely will not work in IE.</strong>
 
 Registering a new web worker is very easy:
-<pre lang="javascript">var worker = new Worker('worker.js');</pre>
+<script src="https://gist.github.com/1541065.js?file=1"></script>
 Workers communicate with your scripts using <em>messages</em>.
 
 The following will open up an alert box containing any messages sent from the worker.
-<pre lang="javascript">worker.onmessage = function(event) {
- alert(event.data);
-}</pre>
+<script src="https://gist.github.com/1541065.js?file=2"></script>
 And to send messages to a worker
 <pre lang="javascript">worker.postMessage('Message for worker');</pre>
 But what about our worker?
