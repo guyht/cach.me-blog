@@ -4,7 +4,7 @@
 	"author" : "Guy"
 }
 
-One of the really great new features of HTML5 are JavaScript web workers.
+One of the really great new features of HTML5 areJavaScript web workers.
 
 From <a href="http://www.whatwg.org/specs/web-workers/current-work/">http://www.whatwg.org/specs/web-workers/current-work/</a>
 <div style="border-style: solid; border-width: 1px; padding: 4px; font-family: 'Courier New', Courier, Monaco;">
@@ -22,7 +22,7 @@ So, using workers we can execute scripts in the background while still manipulat
 
 Now, I will show you how to create a JavaScript Web Worker that will receive some wiki text, parse it into HTML and return it.  The wiki text will be taken from a text box and the HTML will be updated every time a key is pressed, so the rendered HTML will be <em>live</em>.  By using a worker, we do not need to wait for the script to finish executing before the user can perform another action on the page.
 
-<strong>NOTE: You will need an HTML5 compatible browser for the following to work.  This has been tested to work on Chrome and Safari, it has not been tested in Firefox but may work, it definitely will not work in IE.</strong>
+<strong>NOTE: You will need an HTML5 compatible browser for the following to work. This has been tested to work on Chrome and Safari, it has not been tested in Firefox but may work, it definitely will not work in IE.</strong>
 
 Registering a new web worker is very easy:
 <script src="https://gist.github.com/1541065.js?file=1.js"></script>

@@ -17,7 +17,7 @@ In order to make this script as small and simple as possible, I am going to use 
 
 <em>NOTE: This backup script could be written entirely using shell scripting but, because I am a lover of all things PHP (and my shell scripting skills are very much below par) I have decided to use PHP as much as possible.</em>
 
-So, lets get started.  First, I created a simple config file to store the database name, username and password as well as the hour in which to perform the 'daily' backup.  PHP has a really useful function called <a href="http://php.net/manual/en/function.parse-ini-file.php">parse_ini_file</a> which will load a set of preferences into an array.  The configuration file is called <em>nash.ini</em> (this is what I have decided to call this little backup script) and looks like this (<em>with some AmazonS3 stuff to come later</em>):
+So, lets get started. First, I created a simple config file to store the database name, username and password as well as the hour in which to perform the 'daily' backup.  PHP has a really useful function called <a href="http://php.net/manual/en/function.parse-ini-file.php">parse_ini_file</a> which will load a set of preferences into an array.  The configuration file is called <em>nash.ini</em> (this is what I have decided to call this little backup script) and looks like this (<em>with some AmazonS3 stuff to come later</em>):
 <pre lang="cfg">[nash]
 database        = 'dbname'
 username        = 'dbusername'
@@ -90,7 +90,7 @@ The <em>$cmd</em> contains the base command to call mysqldump with the correct p
 
 Once the hourly backup has been completed, we check to see if this is the correct time for the daily backup, and if so then we edit the <em>$path</em> variable and set the destination to the daily backup location.
 
-At this stage, we have a working backup script, that will read in configuration details from a config file called nash.ini and create an hourly backup which is stored in <em>Hourly/{day}/Hourly-{hour}.sql</em>.  Now we can set up a cron job to automate running the script.
+At this stage, we have a working backup script, that will read in configuration details from a config file called nash.ini and create an hourly backup which is stored in <em>Hourly/{day}/Hourly-{hour}.sql</em>. Now we can set up a cron job to automate running the script.
 
 Open up a terminal on your server and type
 <pre lang="bash">crontab -e</pre>
@@ -103,13 +103,13 @@ Congratulations, you now have a working backup script which is run as a cron job
 
 <strong>Note: Debugging a cron job can be very difficult and frustrating so I recommend you test the script by navigating to the containing folder and typing</strong>
 <pre lang="bash">php nash.php</pre>
-<strong>to make sure that it is working correctly before pulling your hair out because the cron job is not working.  This will run the script in CLI mode and any errors will be outputted to the terminal. </strong><em>It is probably a good time to mention that incorrect permissions are often the culprit for scripts not executing correctly, so make sure that the user running the script has write permission to the containing folder.</em>
+<strong>to make sure that it is working correctly before pulling your hair out because the cron job is not working. This will run the script in CLI mode and any errors will be outputted to the terminal. </strong><em>It is probably a good time to mention that incorrect permissions are often the culprit for scripts not executing correctly, so make sure that the user running the script has write permission to the containing folder.</em>
 <h2>AmazonS3 and GZip integration</h2>
-So, in order to expand this script slightly, I have added AmazonS3 and GZip integration.  These have both been added as 'configurable options', so you can still run the script with them disabled, but I would recommend setting them up for a more complete backup solution.
+So, in order to expand this script slightly, I have added AmazonS3 and GZip integration. These have both been added as 'configurable options', so you can still run the script with them disabled, but I would recommend setting them up for a more complete backup solution.
 
-The GZip integration requires <em>gzip</em> to be installed on your server, but this usually the case.  It will change the output of the backups to Backup-Name.sql.<strong>gz</strong>. <em> </em>I would recommend using gzip as the resulting backup files will (depending on your database) will be about 10% of the size of non compressed backup files.
+The GZip integration requires <em>gzip</em> to be installed on your server, but this usually the case. It will change the output of the backups to Backup-Name.sql.<strong>gz</strong>. <em> </em>I would recommend using gzip as the resulting backup files will (depending on your database) will be about 10% of the size of non compressed backup files.
 
-For AmazonS3 integration you will obviously need an AmazonS3 account.  The script will send only the daily backups to AmazonS3 and will store them as Daily-{date}.sql.gz in a bucket named {unique-string}.nash-backup.daily.  You must set the {unique-string} in the config file.  This is because AmazonS3 requires bucket names to be unique and therefore not setting it would cause clashes between users of this script.
+For AmazonS3 integration you will obviously need an AmazonS3 account. The script will send only the daily backups to AmazonS3 and will store them as Daily-{date}.sql.gz in a bucket named {unique-string}.nash-backup.daily. You must set the {unique-string} in the config file. This is because AmazonS3 requires bucket names to be unique and therefore not setting it would cause clashes between users of this script.
 
 I have added some config items to nash.ini
 <pre lang="php">[nash]
@@ -158,8 +158,8 @@ Either download the file as a compressed zip archive from <a href="https://githu
 
 Or, fork/clone my git repository from <a href="https://github.com/guyht/nash">https://github.com/guyht/nash</a>.
 
-<strong>NOTE: The git repository contains the AWS PHP SDK as a submodule.  Once you have cloned the repository, you need to run the following commands to update the submodule</strong>
+<strong>NOTE: The git repository contains the AWS PHP SDK as a submodule. Once you have cloned the repository, you need to run the following commands to update the submodule</strong>
 <pre lang="bash">cd nash
 git submodule init
 git submodule update</pre>
-<strong>This will download the AWS PHP SDK and add it to your cloned git repository.  You don't need to do this if you don't want AmazonS3 integration.  For more on submodules see </strong><a href="http://book.git-scm.com/5_submodules.html"><strong>http://book.git-scm.com/5_submodules.html</strong></a><strong>.</strong>
+<strong>This will download the AWS PHP SDK and add it to your cloned git repository. You don't need to do this if you don't want AmazonS3 integration. For more on submodules see </strong><a href="http://book.git-scm.com/5_submodules.html"><strong>http://book.git-scm.com/5_submodules.html</strong></a><strong>.</strong>

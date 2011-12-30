@@ -4,6 +4,6 @@
 	"author" : "Guy"
 }
 
-Welcome to yet another boring blog, my previous attempts at maintaining a decent blog have failed miserably and I am sure that this one will follow suit.  Most of the stuff posted here will be internet / coding related but will try to post some more interesting stuff as well.
+Welcome to yet another boring blog, my previous attempts at maintaining a decent blog have failed miserably and I am sure that this one will follow suit. Most of the stuff posted here will be internet / coding related but will try to post some more interesting stuff as well.
 
 I intend to use this blog as an outlet for some coding articles that I have been thinking about over the past few months, feel free to flame away.

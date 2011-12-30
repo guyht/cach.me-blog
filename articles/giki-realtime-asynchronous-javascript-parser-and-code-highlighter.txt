@@ -15,16 +15,13 @@ Right, enough waffle, time to look at an example.... here is a realtime BBCode p
 For simplicities sake I will assume that all your javascript files are stored in a subfolder called javascript.  This is not the way the git repository is set out so you will need to move a few files around.  The example supplied in the git repo, however, should work out of the box.
 
 In your html file, you will need to create a text area to input your BB Code, and a div to receive the parsed code.
-<pre lang="html">
-<div id="bbcode_div"></div>
-<textarea id="bbcode_ta" cols="20" rows="5"></textarea></pre>
+
+<script src="https://gist.github.com/1541166.js?file=1.js"></script>
+
 Then, in your javascript file (or in a script tag in your HTML page) you simply need to invoke Giki.
-<pre lang="javascript">
-new Giki({
- 'div' : 'bbcode_div',
- 'text_area' : 'bbcode_ta',
- 'parser' : 'javascript/bbcode.js'
-});</pre>
+
+<script src="https://gist.github.com/1541166.js?file=2.js"></script>
+
 The above code specifies the ids or the div and textarea, and tells giki which parser should be used.  Note that you could supply <strong>any</strong> parser here, so long as it is implemented as a web worker.
 
 And thats it! Enter some BBCode in the textarea and watch as it gets parsed in real time into the div.

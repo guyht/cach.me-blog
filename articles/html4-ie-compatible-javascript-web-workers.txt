@@ -4,7 +4,7 @@
 	"author" : "Guy"
 }
 
-<div style="background-color: #ffffcc; border: 1px solid black; padding: 2px;">UPDATE: The script will now automatically detect if web workers are supported, so no more need for [if IE] tags!  Bien sur, the script will only invoke itself if it finds no web worker support.</div>
+<div style="background-color: #ffffcc; border: 1px solid black; padding: 2px;">UPDATE: The script will now automatically detect if web workers are supported, so no more need for [if IE] tags! Bien sur, the script will only invoke itself if it finds no web worker support.</div>
 Firstly, I need to make a few things clear.  This script will make your web workers compatible with non HTML5 compliant browsers.  However, this will come at a performance cost.  Your web workers will not be mult-threaded and will be executed synchronously with the rest of the javascript on your page.
 <h4>Well, whats the point then?</h4>
 Ah, well, the point is that by making your web workers functional in browsers that do not support HTML5, you remove the need to duplicated your code.
@@ -20,17 +20,17 @@ Web workers might be a revolutionary technology in the world of JavaScript, but 
 What this script does is emulate a web worker, but run it in a synchronous mode, within its own namespace.  Simple!
 <h4>See it in action</h4>
 There are two working examples.  One demonstrating my wiki parser, and the other demonstrating a SHA-256 hash function.  The SHA-256 example uses some more complex features of web workers.
-<ul>
-	<li>Wiki Parser: <a href="http://guyht.github.com/GWorker/examples/parser/wiki.html">http://guyht.github.com/GWorker/examples/parser/wiki.html</a></li>
-	<li>SHA-256 Hash:<a href="http://guyht.github.com/GWorker/examples/sha-256/sha-256.html"> http://guyht.github.com/GWorker/examples/sha-256/sha-256.html</a></li>
-</ul>
+
+- Wiki Parser: <a href="http://guyht.github.com/GWorker/examples/parser/wiki.html">http://guyht.github.com/GWorker/examples/parser/wiki.html</a>
+- SHA-256 Hash:<a href="http://guyht.github.com/GWorker/examples/sha-256/sha-256.html"> http://guyht.github.com/GWorker/examples/sha-256/sha-256.html</a>
+
 Note: The above examples will try to use web workers if they are supported.  Try opening up the examples in IE... the script detects that web workers are not supported and so the workers are run in synchronous mode.
 <h4>Whats the catch?</h4>
 Ah, there is always a catch.  You should note the following (also listed in the README file).
-<ul>
-	<li>Not all web workers will function with this script.  I have tested a few and found that some don't work for various reasons.  The main reason however, is generally because the web worker uses additional HTML5 features (e.g. canvases).</li>
-	<li>You will see a performance hit.  Web workers are executed synchronously, therefore if it is very computationally intensive, your pages will hang.  This is the price you pay to emulate web workers in non compatible browsers.</li>
-</ul>
+
+- Not all web workers will function with this script.  I have tested a few and found that some don't work for various reasons.  The main reason however, is generally because the web worker uses additional HTML5 features (e.g. canvases).
+- You will see a performance hit.  Web workers are executed synchronously, therefore if it is very computationally intensive, your pages will hang.  This is the price you pay to emulate web workers in non compatible browsers.
+
 <strong>I have uploaded the script to my github repo:</strong>
 
 <a href="https://github.com/guyht/GWorker"><strong>https://github.com/guyht/GWorker</strong></a>
