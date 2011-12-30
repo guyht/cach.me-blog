@@ -83,7 +83,7 @@ The <em>parseWiki</em> function runs a set of regular expressions to change the 
 Now, here it is in action (assuming you have an HTML5 compatible browser):
 
 <script type="text/javascript">function init() {
-	document.parser = new Worker('http://www.cach.me/static/javascript/Blog-Parser.js');
+	document.parser = new Worker('https://raw.github.com/guyht/Giki/master/lib/gworker.js');
 	document.parser.onerror = function(event){
 		throw new Error(event.message + " (" + event.filename + ":" + event.lineno + ")");
 	};
