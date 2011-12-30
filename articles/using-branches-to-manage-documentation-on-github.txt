@@ -8,11 +8,9 @@ I really like using Github to manage my projects. The subscription plans are ver
 
 Github has a built in wiki that can be enabled for any repository. The wiki is easy to use and is itself a git repository (as will all things Github). However, for some of my smaller projects I often find that I forget to update the wiki when pushing changes to the repository, and often, changes that I make to the readme and changelog files are duplicated in the wiki.  Wouldn't it be great if changes you made to your readme and changelog files were automatically reflected in your wiki.... luckily git makes this a fairly simple process.
 
-<ol>
-	<li>Create a new branch in your git repository to track changes to the documentation</li>
-	<li>Create the documentation files in your new branch</li>
-	<li>Merge the changes from your documentation branch into your master branch and wiki</li>
-</ol>
+- Create a new branch in your git repository to track changes to the documentation
+- Create the documentation files in your new branch
+- Merge the changes from your documentation branch into your master branch and wiki
 
 First, lets set up a repository.  Create a new repository in github (mine is called ghtdoc).  Now lets create it on our local system and push it to github.
 <pre lang="bash">mkdir ghtdoc
@@ -51,6 +49,7 @@ Now we are going to add our documentation files.  For my repository, I am going 
 For my documentation files I tend to use <a href="http://en.wikipedia.org/wiki/Markdown">markdown</a> (.md extension) to format my pages.  I would suggest you use this method as it means that your documentation will be rendered in a consistent manner when viewing the pages in the wiki or other areas of github.  Markdown also allows you to quickly create and easily maintain you documentation files.
 
 <em>Note: If you already have documentation files in your master branch and want to keep the log histories, this can be done by checking out the specific files into the docs branch.  I will explain this process in another post.</em>
+
 <pre lang="bash">touch README.md
 touch INSTALL.md
 touch CHANGELOG.md
@@ -58,7 +57,6 @@ git add README.md
 git add INSTALL.md
 git add CHANGELOG.md
 git commit -m "Initial commit on docs branch"
-# Now push the changes up to github MAKE SURE YOU PUSH TO DOCS, NOT MASTER
 git push origin docs</pre>
 <strong>Note: You must push the changes to the docs branch on your remote repository, not the master branch.</strong>
 
@@ -83,13 +81,9 @@ To demonstrate this, lets add a title to our README.md file, merge it with the m
 <pre lang="bash">git checkout docs
 echo "Ghtdoc Readme File" > README.md
 git commit -a -m "Adding readme title"
-# Push the changes up to github
 git push origin docs
-# Checkout the master branch
 git checkout master
-# Lets merge!
 git merge docs
-# Push the changes up to github
 git push origin master</pre>
 Now, if you look at the readme file in your master branch, you will see that the changes we made to it in the docs branch have now been merged into the master branch.  Furthermore, browsing to the 'commits' tab in the master branch shows that the commit log for the readme file has also been merged into the commit log for the master branch.  This is an important feature as it means that we never loose any commit history.
 
@@ -98,7 +92,9 @@ Next, we want to pull the changes into our wiki page on github.  In the true spi
 There are several styles that you can adopt for the layout of your wiki page, but I tend to use the following:
 <pre>              README.md             ---->    Wiki Homepage
               CHANGELOG.md          ---->    Changelog
-              INSTALL.md            ---->    Installation Instructions</pre>
+              INSTALL.md            ---->    Installation Instructions
+</pre>
+
 First, lets tell github we want to create a wiki.  Click on the 'Wiki' tab on the main toolbar (if it is not there then you might have turned wikis off in you 'Repository Administration', simply click on the admin button and enable wikis for that repository).
 
 <img class="alignnone size-full wp-image-102" title="Github Wiki Bar" src="http://www.cach.me/blog/wp-content/uploads/2010/12/github-wiki.jpg" alt="" width="750" />
@@ -124,7 +120,6 @@ In order to create our wiki pages, we need to rename our files.  README.md becom
 Remember to use <strong>git mv</strong> not simply <strong>mv</strong>.
 <pre lang="bash"># Remove the default Home.md file
 git rm Home.md
-# Rename our README.md file
 git mv README.md Home.md
 git commit -a -m "Added README.md as Home.md"
 git push origin master</pre>
