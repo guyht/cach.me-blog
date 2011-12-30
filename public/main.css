@@ -20,7 +20,7 @@
 }
 
 .header {
-	height: 75px;
+	height: 110px;
 }
 
 .header .date {
@@ -32,10 +32,17 @@
 	float: left;
 }
 
-.header .title, .header .date, .header a {
+.header .title, .header a {
 	text-decoration: none;
 	font-style: italic;
 	font-size: 25px;
+	color: #790002;
+}
+
+.header .date {
+	text-decoration: none;
+	font-style: italic;
+	font-size: 9px;
 	color: #790002;
 }
 
