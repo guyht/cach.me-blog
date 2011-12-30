@@ -1,6 +1,6 @@
 {
 	"title" : "Using PHP to create hourly backups of a MySQL database (and store in Amazon S3)",
-	"url" : using-php-to-create-hourly-backups-of-a-mysql-database-aws-amazon-s3
+	"url" : "using-php-to-create-hourly-backups-of-a-mysql-database-aws-amazon-s3",
 	"date" : "16/12/2010",
 	"author" : "Guy"
 }
