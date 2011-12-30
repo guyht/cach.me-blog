@@ -1,6 +1,6 @@
 {
 	"title" : "Using branches to manage documentation on github",
-	"date" : "12/11/2010",
+	"date" : "12/08/2010",
 	"author" : "Guy"
 }
 
