@@ -48,6 +48,7 @@ This is not very useful so lets expand our script a bit so we can create our wik
 
 Lets create some basic HTML first.  Create a page called wiki.html and add the following
 
+
 `<html>
  <head>
   <title> Wiki </title>
@@ -58,9 +59,12 @@ Lets create some basic HTML first.  Create a page called wiki.html and add the f
 </body>
 </html>`
 
+
 Now we need to define the <em>init()</em> and <em>parse()</em> functions. (Note: the <em>parse()</em> function will be triggered every time a key is released in the text area.
 
 Add the following just below the <em>body</em> tag
+
+
 `
 function init() {
 	document.parser = new Worker('Parser.js');
@@ -78,6 +82,7 @@ function parse(obj) {
 	document.parser.postMessage(obj.value);
 }
 </script>`
+
 
 The code can be summarised as follows:
 <ul>
