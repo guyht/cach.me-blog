@@ -7,9 +7,9 @@
 Happy New Year and welcome to 2011!
 
 New years resolutions as far as coding goes are as follows:
-<ol>
-	<li>Write better unit tests. (At the moment I am very bad at writing tests, I am going to try to adere to Test Driven Development a bit more)</li>
-	<li>Use a continuous integration platform for anything but trivial projects. (I have used phpUnderControl in the past but I think it is a bit combersome, so I am going to start experimenting with Hudson)</li>
-	<li> Write neater code (This always seems to be present!)  Pretty sure there are a few more so will add them above if they come to mind.</li>
-</ol>
+
+- Write better unit tests. (At the moment I am very bad at writing tests, I am going to try to adere to Test Driven Development a bit more)
+- Use a continuous integration platform for anything but trivial projects. (I have used phpUnderControl in the past but I think it is a bit combersome, so I am going to start experimenting with Hudson)
+- Write neater code (This always seems to be present!)  Pretty sure there are a few more so will add them above if they come to mind.
+
 In the meantime, I am currently working on 2 blog posts/articles which I hope to publish over the next few weeks.  The first will be on a few useful plugins I use with vim, and the other will be on a script I have written to automatically create and manage snapshots on Amazons EC2 service.

@@ -47,8 +47,8 @@ This is not very useful so lets expand our script a bit so we can create our wik
 <h4>Wiki Parser</h4>
 
 Lets create some basic HTML first.  Create a page called wiki.html and add the following
-<pre lang="html">
-<html>
+
+`<html>
  <head>
   <title> Wiki </title>
  </head>
@@ -56,12 +56,12 @@ Lets create some basic HTML first.  Create a page called wiki.html and add the f
  <div id='wiki_div'></div>
  <textarea id='wiki_textarea' onkeyup='parse(this)' cols='100' rows='20'></textarea>
 </body>
-</html>
-</pre>
+</html>`
+
 Now we need to define the <em>init()</em> and <em>parse()</em> functions. (Note: the <em>parse()</em> function will be triggered every time a key is released in the text area.
 
 Add the following just below the <em>body</em> tag
-<pre lang="javascript"><script type="text/javascript">
+`
 function init() {
 	document.parser = new Worker('Parser.js');
 	document.parser.onerror = function(event){
@@ -77,7 +77,7 @@ function init() {
 function parse(obj) {
 	document.parser.postMessage(obj.value);
 }
-</script></pre>
+</script>`
 
 The code can be summarised as follows:
 <ul>

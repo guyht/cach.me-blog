@@ -136,9 +136,10 @@ Lets go into our docs branch and made some edits to the README.md file.
 <pre lang="bash">cd ghtdoc
 git checkout docs</pre>
 Open up README.md in your favourite editor (vim for me) and add some content.
-<pre># Ghtdoc Readme File
+<pre> Ghtdoc Readme File
 
-## Welcome to ghtdoc.
+  Welcome to ghtdoc.
+
 This readme file is used to demonstrate how we can use a docs branch to maintain documentation
 files accross multiple branches and even repositories in git.</pre>
 Save the file and commit it.
@@ -157,9 +158,9 @@ All done!! Note, git is very clever here and remembers that we renamed README.md
 Now point your browser to github and admire your work.  The changes you have made to your documentation have now been merged into your master branch and the wiki.
 
 For every further change you make to your documentation, just repeat the above steps.
-<ol>
-	<li>Commit your changes to the docs branch and push the changes to github</li>
-	<li>Checkout your master branch and merge with your docs branch</li>
-	<li>Browse to your wiki repository and merge your master branch with the remote docs branch</li>
-</ol>
+
+- Commit your changes to the docs branch and push the changes to github
+- Checkout your master branch and merge with your docs branch
+- Browse to your wiki repository and merge your master branch with the remote docs branch
+
 Easy!
