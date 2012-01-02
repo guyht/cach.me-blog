@@ -7,10 +7,10 @@
 Wordpress has just informed me that a new update is available.  It is important to keep software up to date (I dont want anyone hacking my blog!) but experience has taught me that it is equally important to make regular backups of your databases before committing to an update.
 
 A good backup strategy minimises both the potential for data loss and the amount of resources required to execute and maintain the backups.  For my purposes, I wish to backup my database every 2 hours.  The problem, however, is that after a few weeks, this will amount to a large number of files and will become expensive as far as storage goes.  So, my strategy will be in 2 parts.
-<ol>
-	<li>Full database backup every 2 hours.</li>
-	<li>Separate full database backup every 24 hours.  On successful completion of the 24 hour backups, the stored backups for the preceding day are deleted.</li>
-</ol>
+
+- Full database backup every 2 hours.
+- Separate full database backup every 24 hours.  On successful completion of the 24 hour backups, the stored backups for the preceding day are deleted.
+
 This strategy means that at any point in time, I will have backups at 2 hour intervals for the preceding 24 hours and daily backups back to the point where I started running the backup script.  You can adapt this strategy to your own needs, but for this blog it should be ample.
 
 In order to make this script as small and simple as possible, I am going to use php's <a href="http://www.php.net/manual/en/function.exec.php">exec</a> command.  This allows us to run terminal commands from inside php.  For security reasons, <em>exec</em> is often disabled on shared web hosts so make sure you have it enabled before continuing.
@@ -58,11 +58,11 @@ if (!is_dir($basedirHourly.'/'.$day)) {
 	mkdir($basedirHourly.'/'.$day, 0744);
 }</pre>
 The above will
-<ol>
-	<li>Create the Hourly directory if it does not exist</li>
-	<li>Create the Daily directory if it does not exist</li>
-	<li>Create a subdirectory in the Hourly directory named according to the day of the month if it does not already exist</li>
-</ol>
+
+- Create the Hourly directory if it does not exist
+- Create the Daily directory if it does not exist
+- Create a subdirectory in the Hourly directory named according to the day of the month if it does not already exist
+
 Our directory structure is almost complete, all we need to do now is remove the backups that are older than 24 hours.  We could use the <em>exec</em> command to do this, but its more fun in PHP.  We can use the <a href="http://php.net/manual/en/function.rmdir.php">rmdir</a> function to delete a directory, but it will only delete empty directories, so we need to individually delete all the files in that directory first.  We can do this by using the <a href="http://php.net/manual/en/function.glob.php">glob</a> function to list the contents of the directory, followed by the <a href="http://php.net/manual/en/function.unlink.php">unlink</a> do delete each file individually.  Then we can delete the actual directory itself.
 <pre lang="php">// Remove yesterdays directory if it exists
 if (is_dir($basedirHourly.'/'.$yesterday))
