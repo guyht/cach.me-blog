@@ -1,6 +1,7 @@
 {
 	"title" : "Giki - Realtime, asynchronous JavaScript parser and code highlighter",
 	"date" : "2011-03-13 22:37:54",
+	"url" : "giki-realtime-asynchronous-javascript-parser-and-code-highlighter",
 	"author" : "Guy"
 }
 

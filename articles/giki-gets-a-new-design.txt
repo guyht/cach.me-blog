@@ -1,6 +1,7 @@
 {
 	"title" : "Giki gets a new design",
 	"date" : "2011-06-02 23:24:23",
+	"url" : "giki-gets-a-new-design",
 	"author" : "Guy"
 }
 

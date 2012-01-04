@@ -1,6 +1,7 @@
 {
 	"title" : "HTML4 and IE Compatible Web Workers",
 	"date" : "2011-02-23 07:05:03",
+	"url" : "html4-ie-compatible-javascript-web-workers",
 	"author" : "Guy"
 }
 

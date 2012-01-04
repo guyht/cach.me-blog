@@ -1,6 +1,7 @@
 {
 	"title" : "Weierophinney is a genius, Vim task lists, wikis and more",
 	"date" : "2011-01-08 22:46:49",
+	"url" : "weierophinney-is-a-genius-vim-task-lists-wikis-and-more",
 	"author" : "Guy"
 }
 
