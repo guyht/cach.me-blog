@@ -32,19 +32,20 @@ Ah, there is always a catch.  You should note the following (also listed in the 
 - Not all web workers will function with this script.  I have tested a few and found that some don't work for various reasons.  The main reason however, is generally because the web worker uses additional HTML5 features (e.g. canvases).
 - You will see a performance hit.  Web workers are executed synchronously, therefore if it is very computationally intensive, your pages will hang.  This is the price you pay to emulate web workers in non compatible browsers.
 
-<strong>I have uploaded the script to my github repo:</strong>
+
+**I have uploaded the script to my github repo:
 
 <a href="https://github.com/guyht/GWorker"><strong>https://github.com/guyht/GWorker</strong></a>
 
-<strong>Installation instructions are in the readme:</strong>
+Installation instructions are in the readme:
 
 <a href="https://github.com/guyht/GWorker/blob/master/README.md"><strong>https://github.com/guyht/GWorker/blob/master/README.md</strong></a>
 
-<strong>But its as simple as adding this to the head of your pages:</strong>
+But its as simple as adding this to the head of your pages:
 <pre lang="HTML"><!-- Require GWorker script & jQuery -->
 
 <script src="jquery.js" type="text/javascript"><!--mce:0--></script>
 <script src="gworker.js" type="text/javascript"><!--mce:1--></script></pre>
-<strong>It is also worth looking at the examples if the installation instructions are a bit confusing.</strong>
+It is also worth looking at the examples if the installation instructions are a bit confusing.
 
-If you find a bug or are interested in contributing, feel free to fork the repository and issue pull requests.
+If you find a bug or are interested in contributing, feel free to fork the repository and issue pull requests.**
