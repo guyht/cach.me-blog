@@ -33,7 +33,7 @@ Ah, there is always a catch.  You should note the following (also listed in the 
 - You will see a performance hit.  Web workers are executed synchronously, therefore if it is very computationally intensive, your pages will hang.  This is the price you pay to emulate web workers in non compatible browsers.
 
 
-**I have uploaded the script to my github repo:
+**I have uploaded the script to my github repo:**
 
 <a href="https://github.com/guyht/GWorker"><strong>https://github.com/guyht/GWorker</strong></a>
 
@@ -48,4 +48,4 @@ But its as simple as adding this to the head of your pages:
 <script src="gworker.js" type="text/javascript"><!--mce:1--></script></pre>
 It is also worth looking at the examples if the installation instructions are a bit confusing.
 
-If you find a bug or are interested in contributing, feel free to fork the repository and issue pull requests.**
+If you find a bug or are interested in contributing, feel free to fork the repository and issue pull requests.
