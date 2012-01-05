@@ -5,7 +5,6 @@
 	"author" : "Guy"
 }
 
-
 <div style="background-color: #ffffcc; border: 1px solid black; padding: 2px;">UPDATE: The script will now automatically detect if web workers are supported, so no more need for [if IE] tags! Bien sur, the script will only invoke itself if it finds no web worker support.</div>
 Firstly, I need to make a few things clear.  This script will make your web workers compatible with non HTML5 compliant browsers.  However, this will come at a performance cost.  Your web workers will not be mult-threaded and will be executed synchronously with the rest of the javascript on your page.
 <h4>Well, whats the point then?</h4>
@@ -33,20 +32,19 @@ Ah, there is always a catch.  You should note the following (also listed in the 
 - Not all web workers will function with this script.  I have tested a few and found that some don't work for various reasons.  The main reason however, is generally because the web worker uses additional HTML5 features (e.g. canvases).
 - You will see a performance hit.  Web workers are executed synchronously, therefore if it is very computationally intensive, your pages will hang.  This is the price you pay to emulate web workers in non compatible browsers.
 
-
-**I have uploaded the script to my github repo:**
+<strong>I have uploaded the script to my github repo:</strong>
 
 <a href="https://github.com/guyht/GWorker"><strong>https://github.com/guyht/GWorker</strong></a>
 
-Installation instructions are in the readme:
+<strong>Installation instructions are in the readme:</strong>
 
 <a href="https://github.com/guyht/GWorker/blob/master/README.md"><strong>https://github.com/guyht/GWorker/blob/master/README.md</strong></a>
 
-But its as simple as adding this to the head of your pages:
+<strong>But its as simple as adding this to the head of your pages:</strong>
 <pre lang="HTML"><!-- Require GWorker script & jQuery -->
 
 <script src="jquery.js" type="text/javascript"><!--mce:0--></script>
 <script src="gworker.js" type="text/javascript"><!--mce:1--></script></pre>
-It is also worth looking at the examples if the installation instructions are a bit confusing.
+<strong>It is also worth looking at the examples if the installation instructions are a bit confusing.</strong>
 
 If you find a bug or are interested in contributing, feel free to fork the repository and issue pull requests.
