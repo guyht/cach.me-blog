@@ -1,0 +1,22 @@
+{
+	"title" : "Glog: Super simple NodeJS and Git backed blog engine",
+	"date" : "2012-01-04",
+	"url" : "glog-super-simple-nodejs-and-git-backed-blog",
+	"author" : "Guy"
+}
+
+Blogging with Wordpress has become boring and tiresome.  I have grown to dislike the clunky interface, the editor, and the way that however much you try to customize you blog, it still looks like just another Wordpress blog.
+
+I decided to try to put together my own blog engine which would **only** do the bare minimum.  The idea behind **[Glog](https://github.com/guyht/Glog)** is to create a super simple and ultra minimalistic blog engine that has a tiny overhead and only the most basic features.  Although Glog is basic, it is also very powerful.  Here's why you might want to give it a shot.
+
+- **Use the editor of your choice:**
+
+- **Write in markdown:**
+
+- **Go revision happy with git:**
+
+- **Deploy in seconds:**
+
+- **Lightweight:**
+
+- **Entire site caching:**
