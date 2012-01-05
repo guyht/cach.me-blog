@@ -5,6 +5,7 @@
 	"author" : "Guy"
 }
 
+
 <div style="background-color: #ffffcc; border: 1px solid black; padding: 2px;">UPDATE: The script will now automatically detect if web workers are supported, so no more need for [if IE] tags! Bien sur, the script will only invoke itself if it finds no web worker support.</div>
 Firstly, I need to make a few things clear.  This script will make your web workers compatible with non HTML5 compliant browsers.  However, this will come at a performance cost.  Your web workers will not be mult-threaded and will be executed synchronously with the rest of the javascript on your page.
 <h4>Well, whats the point then?</h4>
