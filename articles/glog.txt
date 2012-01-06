@@ -1,22 +1,26 @@
 {
-	"title" : "Glog: Super simple NodeJS and Git backed blog engine",
+	"title" : "Blogging with Glog",
 	"date" : "2012-01-04",
 	"url" : "glog-super-simple-nodejs-and-git-backed-blog",
 	"author" : "Guy"
 }
 
-Blogging with Wordpress has become boring and tiresome.  I have grown to dislike the clunky interface, the editor, and the way that however much you try to customize you blog, it still looks like just another Wordpress blog.
+Blogging with Wordpress has become boring and tiresome.  I have grown to dislike the clunky interface, the editor, and the way that however much you try to customize, it still looks like just another Wordpress blog.
 
-I decided to try to put together my own blog engine which would **only** do the bare minimum.  The idea behind **[Glog](https://github.com/guyht/Glog)** is to create a super simple and ultra minimalistic blog engine that has a tiny overhead and only the most basic features.  Although Glog is basic, it is also very powerful.  Here's why you might want to give it a shot.
+I decided to try to put together my own blog engine which would **only** do the bare minimum.  The idea behind **[Glog](https://github.com/guyht/Glog)** is to create a super simple and ultra minimalistic blog engine that has a tiny overhead and only the most basic features.
 
-- **Use the editor of your choice:**
+Although Glog is basic, it is also very powerful.  Here's why you might want to give it a shot.
 
-- **Write in markdown:**
+- **Use the editor of your choice:**  For me its VI, but you can use whatever you want.  So long as you write your post in valid markdown, it doesnt matter how you write it.
 
-- **Go revision happy with git:**
+- **Write in markdown:**  HTML is cumbersome, WYSIWYG editors are horrible.  Markdown is simple and designed to feel natural when you use it.  This makes it perfect for writing blog posts.
 
-- **Deploy in seconds:**
+- **Go revision happy with git:**  Might be considered slightly overkill by some, but having a solid, revision based backup of your blog can never be sniffed at.
 
-- **Lightweight:**
+- **Deploy in seconds:**  *git push origin master* Thats it!
 
-- **Entire site caching:**
+- **Lightweight:** The blog engine is written in approx 350 lines of javascript including comments and is designed with performance in mind.  The entire blog is cached in memory so even very high traffic blogs can be serverd using a fraction of the hardware a wordpress site would require.
+
+- **Disqus:** Everyone's favourite comments system.  Just plug in your disqus id and its all there for you.
+
+Glog is not for everyone, but if you are looking for a super simple bloggin solution, and you enjoy using git and javascript, give it a shot.
