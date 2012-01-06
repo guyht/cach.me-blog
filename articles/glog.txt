@@ -25,4 +25,4 @@ Although Glog is basic, it is also very powerful.  Here's why you might want to 
 
 Glog is not for everyone, but if you are looking for a super simple bloggin solution, and you enjoy using git and javascript, give it a shot.
 
-**[https://github.com/guyht/Glog](https://github.com/guyht/Glog)
+**[https://github.com/guyht/Glog](https://github.com/guyht/Glog)**
