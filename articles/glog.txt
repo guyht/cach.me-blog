@@ -17,10 +17,12 @@ Although Glog is basic, it is also very powerful.  Here's why you might want to 
 
 - **Go revision happy with git:**  Might be considered slightly overkill by some, but having a solid, revision based backup of your blog can never be sniffed at.
 
-- **Deploy in seconds:**  *git push origin master* Thats it!
+- **Deploy in seconds:**  `git push origin master` Thats it!
 
 - **Lightweight:** The blog engine is written in approx 350 lines of javascript including comments and is designed with performance in mind.  The entire blog is cached in memory so even very high traffic blogs can be serverd using a fraction of the hardware a wordpress site would require.
 
 - **Disqus:** Everyone's favourite comments system.  Just plug in your disqus id and its all there for you.
 
 Glog is not for everyone, but if you are looking for a super simple bloggin solution, and you enjoy using git and javascript, give it a shot.
+
+**[https://github.com/guyht/Glog](https://github.com/guyht/Glog)
