@@ -8,10 +8,10 @@
 I like the idea of having Reddit and Hacker News links appear in my Twitter feed, but all the bots that I have found so far are too high volume and just dominate my feed.  Therefore I decided to write my own.
 
 
-**TopOnHN:** A bot that tweets each article that reaches the number one spot on Hacker News
+**[TopOnHN](http://twitter.com/toponhn):** A bot that tweets each article that reaches the number one spot on Hacker News
 
 
-**TopOnReddit:** A bot that tweets each link that reaches the top 15 on Reddit
+**[TopOnReddit](http://twitter.com/toponreddit):** A bot that tweets each link that reaches the top 15 on Reddit
 
 
 The bots mush abide by the following laws
