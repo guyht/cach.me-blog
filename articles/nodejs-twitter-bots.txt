@@ -1,0 +1,56 @@
+{
+	"title" : "Writing a Twitter bot in NodeJS",
+	"date" : "2012-01-26",
+	"author" : "Guy"
+}
+
+
+I like the idea of having Reddit and Hacker News links appear in my Twitter feed, but all the bots that I have found so far are too high volume and just dominate my feed.  Therefore I decided to write my own.
+
+
+**TopOnHN:** A bot that tweets each article that reaches the number one spot on Hacker News
+
+
+**TopOnReddit:** A bot that tweets each link that reaches the top 15 on Reddit
+
+
+The bots mush abide by the following laws
+
+
+* Never tweet the same article twice
+* Use bit.ly to shorten urls
+* Protect its own existance as long as such protection does not conflict with the first or second laws
+
+
+The first step was to register the Twitter accounts and apps.  This is a fairly strait forward process.  The only step that required some intellect was authenticating the app for the twitter account, but helpfully, twitter has set up a 1 click oauth login for an app that is connected to a twitter account (found at the bottom of the main app page).
+
+
+To handle twitter access, I decided to use the [ntwitter](https://github.com/AvianFlu/ntwitter) module as it seems to be the most up to date, and also the [bitly](https://github.com/tanepiper/node-bitly) module to shorten the urls (for this you also need to setup a bit.ly account and obtain an API key).
+
+
+So… here is the code:
+
+
+<script src="https://gist.github.com/1684328.js?file=gistfile1.js"></script>
+
+
+
+
+The entire process is wrapped in a single function, which is triggered using setInterval every x seconds.  A request is made to the reddit API and on receiving a status 200 response the data is extracted and parsed.
+
+
+The script then takes the top x tweets, checks their score threshold and timestamp, and then generates bit.ly urls for the links and comments.  Once all this has been put together, the tweet is posted.  Simples!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
