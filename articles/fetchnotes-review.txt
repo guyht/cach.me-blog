@@ -1,0 +1,19 @@
+{
+	"title" : "A review of Fetchnotes",
+	"date" : "2012-02-11",
+	"author" : "Guy"
+}
+
+For the past week, I have been using [Fetchnotes](http://www.fetchnotes.com/) to organise my tasks.  Over the years I have used many different services... [Evernote](http://evernote.com), [Wunderlist](http://www.6wunderkinder.com/wunderlist/), [Remember the Milk](http://www.rememberthemilk.com/) and the iPhones good old 'Notes' app (The iOS 5 'Task' app was a non starter, for some reason I cant set tasks as done and I think the app is unintuitive and badly designed... not to mention seriously buggy).  Until now, I have not come across service that quite suits my need.  Evernote is really a 'note' taking platform rather then a todo list, Wunderlist was a bit too buggy for me and managing the tasks could be a bit fiddle, and RTM is non free if you want to use it on your iPhone.  For each of these services, I really tried to like them, but in the end I always ended up using the iPhone notes app to manage my tasks.  The reason for this is that I am essentially very fussy about how I like to take notes.  I dislike apps that are unnecessarily complex, or do more than the job they are designed to do.
+
+About a week ago, I came across an article on Hacker News entitled [What Happens When You Swear At Your Users](http://news.ycombinator.com/item?id=3557813).  The article itself is a great read, talking about how Fetchnotes accidentally send a test email to their entire user base with the phrase 'This is my test bitches'.  It actually turned out rather well for them... a lot of users (luckily) found it rather amusing, and the article made the front page of Hacker News, exposing Fetchnotes to several hundred thousand readers.  Although Fetchnotes is still very much in beta, I decided to give it a go and was immediately impressed.  It is simple and intuitive to use, and using hashtags to organise notes is simply genius.  Almost all note taking apps allow you to tag your notes, but by using hashtags, Fetchnotes allows you to tag your note as you are typing it, saving you the trouble of writing your note, then finding the right tag for it, then clicking on the tag.
+
+Fetchnotes has very limited features at the moment (basically just the ability to save notes on their web platform), but already I am finding that I use it much more than any of the other services I have tried.  Its quick to make notes and tag them in one or multiple categories, and just as easy to filter by those categories.  iPhone and Android apps are not available yet, but their blog suggests that the apps are on their way.  They are also promising integration with several existing services (Evernote, Gmail, Instapaper, Outlook) which should really make Fetchnotes a serious competitor to some of the more established services.
+
+A couple of things I would like to see improved:
+
+* It wasnt clear when I first started writing notes that pressing Shift-Enter was how you saved an edit.  I made changes to several tasks which were then lost because I did not hit Shift-Enter on them.  Would be nice to see tasks get saved when they loose focus, or have some sort of indication that a note has not been saved.
+* I would like to see some more complex filtering, e.g. '#todo & !#done'.
+* The ability to save filters like the one above.
+
+I really like using Fetchnotes, its the only service I have found so far that fits well with how I like to manage my tasks and I am looking forward to seeing what they have to offer in the future.
