@@ -1,0 +1,15 @@
+{
+	"title" : "Why Twitter Bootstrap is bad for the internet",
+	"date" : "2012-02-17",
+	"author" : "Guy"
+}
+
+You can't have missed the recent buzz about the [Twitter Bootstrap](http://twitter.github.com/bootstrap/).  Its been featured several times on [Hacker News](http://news.ycombinatior.com), and some of the larger powerhouses in the blogging industry.
+
+For a web developer, Twitter Bootstrap is a godsend.  For the past few years we have had to make to with [JQuery UI](http://jqueryui.com/), which just didn't quite cut it.  Don't get me wrong, I love the JQuery project, and I have used JQuery UI in several of my own projects, but I have always felt that it was slightly lacking.  It never felt like a complete tool set.  Twitter Bootstrap has everything you could ever want, from [layouts](http://twitter.github.com/bootstrap/scaffolding.html), via [default css templates](http://twitter.github.com/bootstrap/base-css.html), to [every component we could ever need](http://twitter.github.com/bootstrap/components.html).  Designing UIs becomes a breeze, and no doubt development time (and therefore cost) will be drastically reduced.
+
+Wordpress was a similarly successful tool.  A blogging engine that was free, easy to setup, and simple to use.  It went viral (for a good reason), and now, disguising individual wordpress blogs as something unique is a multi million pound industry.  According to ZDNet, [Wordpress powers 14.7 percent of the top million sites worldwide](http://www.zdnet.com/blog/btl/wordpress-powers-147-percent-of-top-million-sites-worldwide/55529), and Wordpress 3.3 alone has been [downloaded over 8 million times](http://wordpress.org/download/counter/).  This means, that for the average web user, over 1 in 6 sites they visit is powered by Wordpress.  But, that [tell-tale wordpress theme](http://wordpress.org/extend/themes/default) that was once so big and beautiful, is now a blight on the internet.
+
+Twitter Bootstrap, I fear, will lead us down the same path.  Developers will flock to use this new tool (and with good reason).  But the result will be that every webpage we visit will have that same "Twitter Bootstrap" look.   Just like Wordpress Templates, we will start to see "Bootstrap Templates", followed by the inevitable birth of the "Bootstrap Templating" industry.
+
+I applaud Twitter for their hard work in creating Twitter Bootstrap, it really is a marvellous tool, but I do fear that their good deed will eventually backfire on us all.
