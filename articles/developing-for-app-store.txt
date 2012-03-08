@@ -1,0 +1,55 @@
+{
+	"title" : "My App Store Experience",
+	"date" : "2012-03-07",
+	"author" : "Guy"
+}
+
+I recently released my first app [Squall](http://bit.ly/squall_app) on the iPhone app store.  Its been a steep learning curve, and I believe that the experience gained in the process is more valuable than any revenue I receive in sales.
+
+One of the first things I noticed when I started the development cycle, was the distinct lack of information about what is actually involved in developing and submitting an app to the iPhone app store.  Once you have purchased your 'developer license', you are (somewhat) guided through the loops by Apple, but until that point, I had no idea what was waiting for me.  This article will hopefully shed some light on what that process involves.
+
+### Initial development
+You don't actually need a developer license to start working on your app.  I started on paper, then moved on to building some prototypes using [JSFiddle](http://jsfiddle.net/).  I then looked around for a framework to use and settled on Appcelerator  (In hindsight, I would have been better off just coding everything in Objective-C but at the time the appeal of being able to write an app in JavaScript was just too great).
+
+Once you get to the coding stage, you will need the latest iPhone SDKs, which can only be downloaded if you have a developer license.  I think this is where a lot of developers get put off.  $99 can seem like a lot of cash up front, especially when you have not even started coding.  You just need to bite the bullet and go for it.  In reality $99 is nothing to what you will get out of the process (talking about experience, not cash here).
+
+### Purchasing a developer license
+Purchasing the developer license is strait forward (the submission process is the killer).  You just need a method of payment (credit card) and an address.  You can sign up at [https://developer.apple.com/](https://developer.apple.com/), enrolling in the **iOS** developer program (don't enrol in the Mac developer program by mistake, the two are not compatible).  Once you have made the purchase, it usually takes about 24 hours for your account to become active, and you will then have access to the wonderful 'iTunes connect', the management hub for your app(s).  From within iTunes connect you can do everything that is not related to the actual development of your app.  This is where you prepare the meta data, keywords, descriptions, upload screenshots, set pricing, view sales etc.
+
+Once your account has been confirmed, navigate to the downloads section and grab the latest Xcode and iOS SDK.
+
+### iTunes connect & The Provisioning Portal
+Although this step could wait a bit, there is not harm in getting it out the way.  Before you can deploy apps on actual devices, you need to create provisioning profiles and developer certificates.  The certificates are used to sign the binaries so they can't be tampered with, and the provisioning profiles allow you to deploy your apps to test devices.  The provisioning portal can be accessed via Apple's developer portal and you will need to generate both development and deployment certificates and profiles.  Although the process is not *simple*, Apple does a really good job of guiding you through it step by step and showing you how to install the certificates on your computer.
+
+Once you have all your certificates and profiles, you need to register your app ID.  Again, this can be done in the provisioning portal and is a fairly simple process.  At this stage, the app ID can have wildcards (e.g. com.ginkapps.*) allowing you to setup push and purchase rules for more than one app.
+
+With the App IDs created, you can then register your app in iTunes Connect.  You will need to fill in details about your app (name, unique identifier, description etc), and finally, you can mark your app as 'ready for upload'.  You can leave this step until a bit later, but if you forget then you will get an error when you try to submit your app.
+
+### Preparing you app
+It is very important that your app (in particular the .plist file) contains all the required information.  If anything is missing, or is in the wrong format, you won't be able to submit your app.  A list of exactly what information is required in the .plist can be found in the Apple Developer portal.  Luckily, if you miss any information, or it is formatted incorrectly, your app submission will immediately fail and you can correct the issue.
+
+In addition to the .plist file, it is a good idea to take a look at Apple's rules and guidelines.  Its quite a chunk to read but it can save you a headache later on down the line.  My first app was rejected after a week in the approval process because the option to automatically load on startup was enabled by default.  If I had taken the time to read the guidelines properly I would have known that this is not allowed and not had to resubmit my app a 2nd time.
+
+### Testing on your device(s)
+Once you have setup all your certificates and provisioning profiles its time to start testing your app on your devices.  You should have been testing the app in the iOS simulator up to now, but you can't rely on it to behave exactly the same as an actual device.  To allow you app to be install on an external device, you need to install your provisioning profile on it.  This can be done via Xcode, via the organiser (devices tab).  Once the profile is installed, you should be able to install your app via iTunes, just as you would any other app (I usually just drag it onto the device from the Apps window).  I believe you can also install apps via Xcode.  Of course, for you app to be accepted by the device, it must have an App ID that matches the one n the provisioning profile installed on the device.
+
+This is not the only way to test on multiple devices, but probably the easiest if you are only testing on a few phones/ipods.  For power users, you might want to take a look at [Test Flight](https://testflightapp.com/).
+
+### The submission process
+When you have finished testing you app and you are happy with it, you can submit it to the app store.  This involves building the app 'for distribution' which means it gets signed by different (distribution) certificates, and creates an archive that can be uploaded.  So long as you have registered an app with the same App ID in iTunes Connect, you should now be able to submit your app via the Xcode Organiser.  Some more signing happens, and then your app will start uploading.  If there are any obvious issues with the app (mostly with the .plist), then you will get an immediate rejection message.  Otherwise, the binary will be uploaded, and your app will be pending review.  In this state, you can change the details about the app (description, screenshots), but you cannot upload a new version of the app (unless you do it as an 'update').
+
+### Approval
+Approval typically takes a week, or at least in my experience it has.  For some apps it takes longer, for others less.  You have no control over it, and you will get no indication of your place in the queue.  Just sit back, forget about it for a few days and wait for an email.
+
+If your app is rejected, you should get some information stating why.  This is usually quite vague, but should give you enough information to work out which of the 10,000 rules you broke.  If you think that your app was unfairly rejected, then there is an appeal process, but I have no experience of that myself.
+
+Hopefully, your app will pass approval, and your app status will become 'pending developer release'.  At this stage, the app is ready to go, but hasnt been made available on the app store yet.  The temptation (having waited so long) is to immediately release your app, but I urge you to go through one final stage of testing.  Even though your app has not been made available on the app store, you can still generate promo codes and use these to download the app.  Send a few out, and make sure the app downloads and works as expected.  Thousands of apps are approved on the app store every day, and you will get approximately 48 hours in the 'new and noteworthy' section of your app's category.  You will only get this chance once, and it is the time in which your app will either sink in a sea of doom, or get enough downloads to keep it afloat once its pushed off the list, so make sure that the app is 100% before releasing it.
+
+### Release
+Having completed your final tests, you can now release your app.  It usually takes a few hours to appear on the various app stores, but over 24 hours it should have gone global.  After another 24 hours, you should see your first days stats appearing in iTunes connect.
+
+### Updates
+At some point, you will want to release an update for your app.  Either adding new features, or fixing bugs.  To do this, you will need to register an update in iTunes connect with a new version number.  Make sure you update your .plist to reflect the new version number, and once you are ready, go through the same submission process as before.  In my experience, approval for updates takes just as long as the initial approval did, so be warned, you are not going to get a 'quick fix' out.
+
+I hope you found this article helpful.  Feel free to contact me with any questions you have, either by commenting below or via any means listed on [my home page](http://guy.ht).
+
