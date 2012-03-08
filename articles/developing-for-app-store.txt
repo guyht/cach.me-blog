@@ -31,7 +31,7 @@ It is very important that your app (in particular the .plist file) contains all 
 In addition to the .plist file, it is a good idea to take a look at Apple's rules and guidelines.  Its quite a chunk to read but it can save you a headache later on down the line.  My first app was rejected after a week in the approval process because the option to automatically load on startup was enabled by default.  If I had taken the time to read the guidelines properly I would have known that this is not allowed and not had to resubmit my app a 2nd time.
 
 ### Testing on your device(s)
-Once you have setup all your certificates and provisioning profiles its time to start testing your app on your devices.  You should have been testing the app in the iOS simulator up to now, but you can't rely on it to behave exactly the same as an actual device.  To allow you app to be install on an external device, you need to install your provisioning profile on it.  This can be done via Xcode, via the organiser (devices tab).  Once the profile is installed, you should be able to install your app via iTunes, just as you would any other app (I usually just drag it onto the device from the Apps window).  I believe you can also install apps via Xcode.  Of course, for you app to be accepted by the device, it must have an App ID that matches the one n the provisioning profile installed on the device.
+Having setup all your certificates and provisioning profiles its time to start testing your app on your devices.  You should have been testing the app in the iOS simulator up to now, but you can't rely on it to behave exactly the same as an actual device.  To allow you app to be install on an external device, you need to install your provisioning profile on it.  This can be done in Xcode, via the organiser (devices tab).  Once the profile is installed, you should be able to install your app via iTunes, just as you would any other app (I usually just drag it onto the device from the Apps window).  I believe you can also install apps through Xcode.  Of course, for you app to be accepted by the device, it must have an App ID that matches the one in the provisioning profile installed on the device.
 
 This is not the only way to test on multiple devices, but probably the easiest if you are only testing on a few phones/ipods.  For power users, you might want to take a look at [Test Flight](https://testflightapp.com/).
 
@@ -47,6 +47,8 @@ Hopefully, your app will pass approval, and your app status will become 'pending
 
 ### Release
 Having completed your final tests, you can now release your app.  It usually takes a few hours to appear on the various app stores, but over 24 hours it should have gone global.  After another 24 hours, you should see your first days stats appearing in iTunes connect.
+
+While the app is on the app store, you can still change some of the metadata (e.g. descrption) and this is usually updated quite promptly on the various app stores.
 
 ### Updates
 At some point, you will want to release an update for your app.  Either adding new features, or fixing bugs.  To do this, you will need to register an update in iTunes connect with a new version number.  Make sure you update your .plist to reflect the new version number, and once you are ready, go through the same submission process as before.  In my experience, approval for updates takes just as long as the initial approval did, so be warned, you are not going to get a 'quick fix' out.
