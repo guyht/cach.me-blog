@@ -55,3 +55,5 @@ At some point, you will want to release an update for your app.  Either adding n
 
 I hope you found this article helpful.  Feel free to contact me with any questions you have, either by commenting below or via any means listed on [my home page](http://guy.ht).
 
+[If you enjoyed this article, please upvote on Hacker News](http://news.ycombinator.com/item?id=3680199)
+
