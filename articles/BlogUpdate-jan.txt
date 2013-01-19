@@ -1,0 +1,14 @@
+{
+	"title" : "Blog Update",
+	"date" : "2013-01-18",
+	"author" : "Guy"
+}
+
+Although I have not posted since March last year, this blog is not dead.  I have been working on Glog in the background and have been involved in various other projects along the way.
+I intend to revive this blog (mostly because I like how it looks and can't stand any of the mass media blogging platforms), but the articles you see will be slightly different to what they have been so far.
+
+I will be writing less technical articles, concentrating more on general tech news and lifestyle.  Apologies if that wasn't really what you were looking for, but I am slightly bored of basically just writing 'coding tutorials', and want to diversify a bit.  Hopefully this will bring about some more interesting articles.  Apologies if it doesn't.
+
+I have just moved my blog and home page over to AppFog (which is an awesome service btw), but the transition wasn't quite as smooth as I hoped, so there may be a bit of maintenance to do.
+
+Am aiming to publish a couple of articles over the next few weeks, so keep tuned!
