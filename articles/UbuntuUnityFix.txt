@@ -23,16 +23,37 @@ from VirtualBox's website, not from Ubuntu's repo, and assume you have Ubuntu
 1. Check to see if your Ubuntu 12.10 guest has 3D acceleration enabled:
 
     `$ /usr/lib/nux/unity_support_test -p`
+
+
     `Not software rendered:    no`
+
+
     `Not blacklisted:          yes`
+
+
     `GLX fbconfig:             yes`
+
+
     `GLX texture from pixmap:  yes`
+
+
     `GL npot or rect textures: yes`
+
+
     `GL vertex program:        yes`
+
+
     `GL fragment program:      yes`
+
+
     `GL vertex buffer object:  yes`
+
+
     `GL framebuffer object:    yes`
+
+
     `GL version is 1.4+:       yes`
+
 
     `Unity 3D supported:       no`
 If, "Not software rendered" and "Unity 3D supported" both return "no" as seen
