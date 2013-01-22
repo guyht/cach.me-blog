@@ -8,9 +8,9 @@ I recently installed the latest version of Ubuntu on my VirtualBox setup, and wa
 
 But… here is how you can fix it:
 
-Note, these instructions only work for **VirtualBox 4.2.4 or 4.2.6**, installed from VirtualBox's website, not from Ubuntu's repo, and assume you have Ubuntu 12.10 already installed in your VirtualBox.
+Note, these instructions only work for VirtualBox 4.2.4 or 4.2.6, installed from VirtualBox's website, not from Ubuntu's repo, and assume you have Ubuntu 12.10 already installed in your VirtualBox.
 
-* Check to see if your Ubuntu 12.10 guest has **3D acceleration enabled**.  If, "Not software rendered" and "Unity 3D supported" both return "no" as seen above, then Ubuntu 12.10 is running Unity using LLVMpipe.
+* Check to see if your Ubuntu 12.10 guest has 3D acceleration enabled:
 
     $ /usr/lib/nux/unity_support_test -p
     Not software rendered:    no
@@ -25,11 +25,13 @@ Note, these instructions only work for **VirtualBox 4.2.4 or 4.2.6**, installed 
     GL version is 1.4+:       yes
 
     Unity 3D supported:       no
-  
 
-* Install VirtualBox Oracle VM **VirtualBox Extension Pack**. (see https://www.virtualbox.org/wiki/Downloads)
+If, "Not software rendered" and "Unity 3D supported" both return "no" as seen above, then Ubuntu 12.10 is running Unity using LLVMpipe.
 
-* Install some required packages for the **guest additions**:
+
+* Install VirtualBox Oracle VM VirtualBox Extension Pack. (see https://www.virtualbox.org/wiki/Downloads)
+
+* Install some required packages for the guest additions:
 
     sudo apt-get install linux-headers-$(uname -r) build-essential
 
@@ -37,15 +39,15 @@ Note, these instructions only work for **VirtualBox 4.2.4 or 4.2.6**, installed 
 
     sudo ./VBoxLinuxAdditions.run
 
-* Add the **vboxvideo driver** to your modules file:
+* Add the vboxvideo driver to your modules file:
 
     sudo bash -c 'echo vboxvideo >> /etc/modules'
 
 * Shutdown the Ubuntu instance.
 
-7. Open the settings of the Ubuntu instance, navigate to "Display", and make sure **"Enable 3D acceleration"** is selected.
+* Open the settings of the Ubuntu instance, navigate to "Display", and make sure "Enable 3D acceleration" is selected.
 
-8. Start your Ubuntu 12.10 instance, and check that its all working by re-running the command:
+* Start your Ubuntu 12.10 instance, and check that its all working by re-running the command:
 
     /usr/lib/nux/unity_support_test -p
 
