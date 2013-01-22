@@ -24,28 +24,33 @@ from VirtualBox's website, not from Ubuntu's repo, and assume you have Ubuntu
 
 <code>
     $ /usr/lib/nux/unity_support_test -p
-
-    
+</code>
+<code>
     Not software rendered:    no
-
+</code>
+<code>
     Not blacklisted:          yes
-
+</code>
+<code>
     GLX fbconfig:             yes
-
+</code>
+<code>
     GLX texture from pixmap:  yes
-
+</code>
+<code>
     GL npot or rect textures: yes
-
+</code>
+<code>
     GL vertex program:        yes
-
+</code><code>
     GL fragment program:      yes
-
+</code><code>
     GL vertex buffer object:  yes
-
+</code><code>
     GL framebuffer object:    yes
-
+</code><code>
     GL version is 1.4+:       yes
-
+</code><code>
     Unity 3D supported:       no
 </code>
 
