@@ -24,6 +24,7 @@ from VirtualBox's website, not from Ubuntu's repo, and assume you have Ubuntu
 
 <code>
     $ /usr/lib/nux/unity_support_test -p
+
     
     Not software rendered:    no
 
