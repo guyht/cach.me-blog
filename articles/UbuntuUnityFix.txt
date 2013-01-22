@@ -22,37 +22,31 @@ from VirtualBox's website, not from Ubuntu's repo, and assume you have Ubuntu
 
 ## 1 Check to see if your Ubuntu 12.10 guest has 3D acceleration enabled:
 
-<code>
-    $ /usr/lib/nux/unity_support_test -p
-</code>
-<code>
-    Not software rendered:    no
-</code>
-<code>
-    Not blacklisted:          yes
-</code>
-<code>
-    GLX fbconfig:             yes
-</code>
-<code>
-    GLX texture from pixmap:  yes
-</code>
-<code>
-    GL npot or rect textures: yes
-</code>
-<code>
-    GL vertex program:        yes
-</code><code>
-    GL fragment program:      yes
-</code><code>
-    GL vertex buffer object:  yes
-</code><code>
-    GL framebuffer object:    yes
-</code><code>
-    GL version is 1.4+:       yes
-</code><code>
-    Unity 3D supported:       no
-</code>
+
+$ /usr/lib/nux/unity_support_test -p
+
+Not software rendered:    no
+
+Not blacklisted:          yes
+
+GLX fbconfig:             yes
+
+GLX texture from pixmap:  yes
+
+GL npot or rect textures: yes
+
+GL vertex program:        yes
+
+GL fragment program:      yes
+
+GL vertex buffer object:  yes
+
+GL framebuffer object:    yes
+
+GL version is 1.4+:       yes
+
+Unity 3D supported:       no
+
 
 If, "Not software rendered" and "Unity 3D supported" both return "no" as seen
 above, then Ubuntu 12.10 is running Unity using LLVMpipe.
