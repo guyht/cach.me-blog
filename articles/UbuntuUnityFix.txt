@@ -4,11 +4,21 @@
 	"author" : "Guy"
 }
 
-I recently installed the latest version of Ubuntu on my VirtualBox setup, and was disappointed to find that it was almost unusable because it was so slow.  It turns out this is due to Unity 2D no longer being included in Ubuntu (as of 12.10).  Instead Ubuntu 12.10 runs Unity under LLVM, meaning that, in the absence of a GPU, the rendering code is run directly on the CPU.  This slows the system down because a) the CPU has to render the graphics in addition to its normal tasks and b) the CPU is not optimised for graphics rendering.  For me (and many others), this makes using Ubuntu 12.10 in VirtualBox almost impossible to use. 
+I recently installed the latest version of Ubuntu on my VirtualBox setup, and
+was disappointed to find that it was almost unusable because it was so slow.
+It turns out this is due to Unity 2D no longer being included in Ubuntu (as of
+12.10).  Instead Ubuntu 12.10 runs Unity under LLVM, meaning that, in the
+absence of a GPU, the rendering code is run directly on the CPU.  This slows
+the system down because a) the CPU has to render the graphics in addition to
+its normal tasks and b) the CPU is not optimised for graphics rendering.  For
+me (and many others), this makes using Ubuntu 12.10 in VirtualBox almost
+impossible to use. 
 
 But… here is how you can fix it:
 
-Note, these instructions only work for VirtualBox 4.2.4 or 4.2.6, installed from VirtualBox's website, not from Ubuntu's repo, and assume you have Ubuntu 12.10 already installed in your VirtualBox.
+Note, these instructions only work for VirtualBox 4.2.4 or 4.2.6, installed
+from VirtualBox's website, not from Ubuntu's repo, and assume you have Ubuntu
+12.10 already installed in your VirtualBox.
 
 * Check to see if your Ubuntu 12.10 guest has 3D acceleration enabled:
 
@@ -26,16 +36,19 @@ Note, these instructions only work for VirtualBox 4.2.4 or 4.2.6, installed from
 
     Unity 3D supported:       no
 
-If, "Not software rendered" and "Unity 3D supported" both return "no" as seen above, then Ubuntu 12.10 is running Unity using LLVMpipe.
+If, "Not software rendered" and "Unity 3D supported" both return "no" as seen
+above, then Ubuntu 12.10 is running Unity using LLVMpipe.
 
 
-* Install VirtualBox Oracle VM VirtualBox Extension Pack. (see https://www.virtualbox.org/wiki/Downloads)
+* Install VirtualBox Oracle VM VirtualBox Extension Pack. (see
+* https://www.virtualbox.org/wiki/Downloads)
 
 * Install some required packages for the guest additions:
 
     sudo apt-get install linux-headers-$(uname -r) build-essential
 
-* Install the guest additions by clicking Devices, Install Guest Additions and running this command from the CD-ROM's directory:
+* Install the guest additions by clicking Devices, Install Guest Additions and
+* running this command from the CD-ROM's directory:
 
     sudo ./VBoxLinuxAdditions.run
 
@@ -45,10 +58,13 @@ If, "Not software rendered" and "Unity 3D supported" both return "no" as seen ab
 
 * Shutdown the Ubuntu instance.
 
-* Open the settings of the Ubuntu instance, navigate to "Display", and make sure "Enable 3D acceleration" is selected.
+* Open the settings of the Ubuntu instance, navigate to "Display", and make
+* sure "Enable 3D acceleration" is selected.
 
-* Start your Ubuntu 12.10 instance, and check that its all working by re-running the command:
+* Start your Ubuntu 12.10 instance, and check that its all working by
+* re-running the command:
 
     /usr/lib/nux/unity_support_test -p
 
-**NOTE: If you perform an update, and your linux headers are updated, you will need to repeat the above process**
+**NOTE: If you perform an update, and your linux headers are updated, you will
+need to repeat the above process**
