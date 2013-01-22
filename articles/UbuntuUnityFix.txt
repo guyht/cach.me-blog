@@ -12,7 +12,7 @@ Note, these instructions only work for **VirtualBox 4.2.4 or 4.2.6**, installed 
 
 * Check to see if your Ubuntu 12.10 guest has **3D acceleration enabled**.  If, "Not software rendered" and "Unity 3D supported" both return "no" as seen above, then Ubuntu 12.10 is running Unity using LLVMpipe.
 
-
+<center>
     $ /usr/lib/nux/unity_support_test -p
     Not software rendered:    no
     Not blacklisted:          yes
@@ -26,7 +26,7 @@ Note, these instructions only work for **VirtualBox 4.2.4 or 4.2.6**, installed 
     GL version is 1.4+:       yes
 
     Unity 3D supported:       no
-
+</center>
   
 
 * Install VirtualBox Oracle VM **VirtualBox Extension Pack**. (see https://www.virtualbox.org/wiki/Downloads)
