@@ -1,5 +1,5 @@
 {
-	"title" : "Ubuntu 12.10 (Unity) runs slow in VirtualBox",
+  "title" : "Ubuntu 12.10 (Unity) runs slow in VirtualBox",
 	"date" : "2013-01-21",
 	"author" : "Guy"
 }
