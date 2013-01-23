@@ -1,4 +1,4 @@
-.article {
+article {
 	margin-right: auto;
 	margin-left: auto;
 	width: 800px;
@@ -12,21 +12,30 @@
 	margin-bottom: 50px;
 }
 
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
 .blog_title, .blog_title a {
 	color: black;
 	text-decoration: none;
 	font-size: 32px;
 }
 
-.header {
+header {
 	margin-top: 50px;
+    height: 92px;
 }
 
-.header .date {
+header .date {
 	width: 200px;
 }
 
-.header .title, .header a {
+header .title, header a {
 	text-decoration: none;
 	font-style: italic;
 	font-size: 25px;
@@ -35,7 +44,7 @@
 	margin-left: 0px;
 }
 
-.header .date {
+header .date {
 	text-decoration: none;
 	font-style: italic;
 	font-size: 14px;
@@ -93,8 +102,12 @@ a:hover {
 }
 
 /*Socialite*/
+.cf:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+* html .cf { zoom: 1; }
+* *:first-child+html .cf { zoom: 1; }
+
 .social-buttons { display: block; list-style: none; padding: 0; margin: 20px; }
-.social-buttons > li { display: block; margin: 0; padding: 10px; float: left; }
+.social-buttons > li { display: block; margin: 0; padding-left: 10px; float: left; }
 .social-buttons .socialite { display: block; position: relative; background: url('images/social-sprite.png') 0 0 no-repeat; }
 .social-buttons .socialite-loaded { background: none !important; }
 

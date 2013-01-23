@@ -16,22 +16,28 @@ body
     div.blog_title
         <a href='!{base_url}/'>!{title}</a>
     - each article in articles
-        div.article
-            div.header
-                div.title
-                    <a href='!{base_url}/!{article.url}/'>!{article.title}</a>
-                div.date
-                    -if (show_author)
-                        !{article.author} - 
-                    !{article.date_str}
-                div.social
-                    ul.social-buttons.cf
-                        li
-                            a.socialite.twitter-share(href='http://twitter.com/share', data-text=article.title, data-url=base_url + '/' +  article.url, data-count='vertical', rel='nofollow', target='_blank')
-                            a.socialite.googleplus-one(href='http://plus.google.com/share', data-href=base_url + '/' +  article.url, data-size='tall', rel='nofollow', target='_blank')
-                            a.socialite.facebook-like(href='http://facebook.com', data-href=base_url + '/' +  article.url, data-send='false', data-layout='box_count', data-width='60', data-show-faces='false', rel='nofollow', target='_blank')
-            div.body !{article.body}
-
+        article
+            header
+                div.left
+                    div.title
+                        <a href='!{base_url}/!{article.url}/'>!{article.title}</a>
+                    div.date
+                        -if (show_author)
+                            !{article.author} - 
+                        <time pubdate datetime="!{article.datetime}">!{article.date_str}</time>
+                div.right
+                    div.social
+                        ul.social-buttons.cf
+                            li
+                                a.socialite.twitter-share(href='http://twitter.com/share', data-text=article.title, data-url=base_url + '/' +  article.url, data-count='vertical', rel='nofollow', target='_blank')
+                            li
+                                a.socialite.googleplus-one(href='http://plus.google.com/share', data-href=base_url + '/' +  article.url, data-size='tall', rel='nofollow', target='_blank')
+                            li
+                                a.socialite.facebook-like(href='http://facebook.com', data-href=base_url + '/' +  article.url, data-send='false', data-layout='box_count', data-width='60', data-show-faces='false', rel='nofollow', target='_blank')
+            div.body
+                - if(typeof article.image !== 'undefined')
+                    img(src=article.image)
+                !{article.body}
             - if (typeof single !== 'undefined' && single && disqus_id !== -1)
                 script(type='text/javascript)
                     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
