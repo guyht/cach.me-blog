@@ -37,11 +37,11 @@ Now, Vim-Wiki is pretty cool on its own, but imagine the potential if it was pos
 To complete my personal organiser, I have (using Weierophinney's techniques), integrated Vim-Task into Vim-Wiki and use Git to track changes to my wiki and make it acessible from anywhere.  This also has the added benefit that my wiki is both versioned and backed up.  Although I don't use it personally, the Fugitive git plugin for vim comes very hightly recommended and integrates well with the wiki.
 Vim-Task integration was quite simple (many thanks Weierophinney) and allows you to create tasks directly in your wiki by starting the line with a '-'.
 <h3>Git Repos</h3>
-Weierophinney's repository can be found athttp://git.mwop.net/?a=summary&amp;p=vimrc
+Weierophinney's repository can be found at http://git.mwop.net/?a=summary&amp;p=vimrc
 
-My repositories can be found at <a href="https://github.com/guyht/vim-task/tree/alt-font">https://github.com/guyht/vim-task/tree/alt-font</a> for vim-task
+My repositories can be found at https://github.com/guyht/vim-task/tree/alt-font for vim-task
 
-and <a href="https://github.com/guyht/vimwiki/tree/alt-font">https://github.com/guyht/vimwiki/tree/alt-font</a> for vim-wiki with vim-task integration
+and https://github.com/guyht/vimwiki/tree/alt-font for vim-wiki with vim-task integration
 
 You can also find my vimrc configuration on my github page.
 <h3></h3>
