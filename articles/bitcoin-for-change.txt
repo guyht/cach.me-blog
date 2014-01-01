@@ -4,7 +4,7 @@
 	"author" : "Guy"
 }
 
-For the past few weeks I have been wanting to write an article about Bitcoin, but was not really sure what to write about.  There are so many aspects to bitcoin, so many pros and cons, that its near impossible to cover everything in one article;  therefore, this article assumes you at least have a basic understanding of what bitcoin is (if not [weusecoins](http://www.weusecoins.com/en/) is a good place to start) and you may even have some bitcoins yourself (if not then you may want to head over to [QuickBitcoin](https://quickbitcoin.co.uk)).
+For the past few weeks I have been wanting to write an article about Bitcoin, but was not really sure what to write about.  There are so many aspects to bitcoin, so many pros and cons, that its near impossible to cover everything in one article.  If you are new to bitcoin then I would highly recommend  [weusecoins](http://www.weusecoins.com/en/) as a good place to start and if you are in the market to buy then you may want to head over to [QuickBitcoin](https://quickbitcoin.co.uk).
 
 I see a lot of articles on hacker news about the pros and cons of bitcoins (articles are normally strongly weighted one way or the other, but with approximately equal numbers on each side).  The very fact of it is, there are a lot of pros, and a lot of cons to bitcoin.  [Santoshi](https://www.google.ca/search?q=santoshi&source=lnms&tbm=isch&sa=X&ei=6krDUqC5Nc74oATxnIKIDQ&ved=0CAkQ_AUoAQ&biw=1440&bih=802) is clearly a genius, but no system is created without flaws.  While its nice to see mature discussions on Hacker News and Reddit, I think a lot of people are missing an important point.
 
