@@ -1,0 +1,15 @@
+{
+	"title" : "Vancouver Photography",
+	"date" : "2014-01-18",
+	"author" : "Guy"
+}
+
+Although I have always been interested in photography, I have never really written about it.  My setup is by no means professional, but I feel that I have enough to get a fairly decent pictures from it.  I have a [Nikon D5200](http://en.nikon.ca/Nikon-Products/Product/Digital-SLR-Cameras/1501/D5200.html) with an [18-55mm stock lens](http://www.dpreview.com/lensreviews/nikon_18-55_3p5-5p6_vr_n15) which is actually ok for quick snaps, a [70-300mm](http://www.dpreview.com/news/2006/8/9/nikonafs70-300vrlens) and a [55mm prime](http://www.dpreview.com/lensreviews/nikon_35_1p8g_n15) which is amazing!  I also have a Pentax 1.8 55mm prime which I use with an adapter ring.
+
+All my photos can be seen on Flickr at [http://www.flickr.com/photos/guyht/](http://www.flickr.com/photos/guyht/) and most of them are taken in and around the Vancouver area.
+
+![Downtown Vancouver](http://farm4.staticflickr.com/3792/11598200286_e4a2a20f8f_b.jpg)
+This was taken from Jericho beach with the Pentax 1.8 55mm prime.  Since the lens only has manual focus, I had to take a succession of 5-6 shots while adjusting the focus ring and picking the sharpest one.  While I have had good success with this technique, its a sure way to fill up your memory card with out of focus photos.
+
+![Jelly](http://farm6.staticflickr.com/5537/10047376285_09c37d1274_b.jpg)
+Taken at the Vancouver Aquarium with the 35m prime full open and a high iso of 1600 to give me a fast enough shutter speed of 1/80.  Most of the photos I took inside the aquarium got messed up by the thick glass in front of the tanks.  I managed to get this one by putting a hood on the 35mm prime, and pushing it right up against the glass so that no light could reflect off it.
